@@ -1,0 +1,16 @@
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Writing SSH key to file"
+    - echo "$SSH_PRIVATE_KEY" | sed 's/\\n/\n/g' > ./id_rsa
+    - echo "Key written to file"
+    - cat ./id_rsa
+    - chmod 600 ./id_rsa
+    - mkdir -p ~/.ssh
+    - ssh-keyscan -H static.176.9.235.167.clients.your-server.de/ >> ~/.ssh/known_hosts
+    - ssh -i "./id_rsa" root@static.176.9.235.167.clients.your-server.de -t "/root/scripts/guess-salt-score-deploy"
+  only:
+    - master

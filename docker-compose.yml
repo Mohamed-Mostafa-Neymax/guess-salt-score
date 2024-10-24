@@ -1,0 +1,12 @@
+version: '3.8'  # Specify the version of Docker Compose
+
+services:
+  nextjs-app:
+    build:
+      context: .  # Use the current directory as the build context
+      dockerfile: Dockerfile  # Specify the Dockerfile if it's named differently
+    ports:
+      - "8010:3000"  # Map port 8010 on the host to port 3000 in the container
+    environment:
+      NODE_ENV: production  # Set the environment variable for production (optional)
+    restart: unless-stopped  # Automatically restart the container unless stopped manually
