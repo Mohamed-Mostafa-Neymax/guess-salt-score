@@ -1,7 +1,7 @@
 import Image from "next/image";
 import CustomButton from "../ui/button";
 
-const Overview: React.FC = () => {
+const Overview: React.FC<{ isPopup: boolean; onClosePopup?: () => void; }> = ({ isPopup, onClosePopup }) => {
     return (
         <>
             <div className="pt-20 pl-28 mb-28">
@@ -36,11 +36,21 @@ const Overview: React.FC = () => {
                 </div>
             </div>
             <div className="flex justify-center">
-                <CustomButton
-                    path="/stage/instructions"
-                    isActionBtn={false}
-                    isDisabled={false}
-                    typeBtn='button'>SEE THE INSTRUCTIONS</CustomButton>
+                {
+                    isPopup ? (
+                        <button
+                            type="button"
+                            onClick={onClosePopup}
+                            className="text-[#04303E] text-3xl MontserratBold underline">CLOSE</button>
+                    ) : (
+                        <CustomButton
+                            path="/stage/instructions"
+                            isActionBtn={false}
+                            isDisabled={false}
+                            typeBtn='button'>SEE THE INSTRUCTIONS</CustomButton>
+                    )
+                }
+                
             </div>
         </>
     )

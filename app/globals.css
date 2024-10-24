@@ -19,3 +19,24 @@ body {
 .MontserratBold {
   font-family: 'Montserrat-Bold';
 }
+
+.animatePopup {
+  top: 100px;
+  animation-name: ShowUp;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes ShowUp {
+  from {
+    top: 100px;
+    opacity: 0;
+  }
+
+  to {
+    top: 0px;
+    opacity: 1;
+  }
+}
