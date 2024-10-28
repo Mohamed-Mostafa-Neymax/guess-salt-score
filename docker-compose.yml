@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  saltscore:
+   
+    build:
+      context: . # Path to your Next.js app
+      dockerfile: Dockerfile        # Ensure you have a Dockerfile in your app directory
+    ports:
+      - "8016:3000"                 # Expose the port for the Next.js app
+    networks:
+      - saltscore-network
+    environment:
+      - NODE_ENV=production         # Set environment variables as needed
+
+networks:
+  saltscore-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.16.0.0/16 
+

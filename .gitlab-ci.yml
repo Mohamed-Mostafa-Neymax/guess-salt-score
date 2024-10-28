@@ -1,0 +1,16 @@
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Writing SSH key to file"
+    - echo "$SSH_PRIVATE_KEY" | sed 's/\\n/\n/g' > ./intelligencia-server.pem
+    - echo "Key written to file"
+    - cat ./intelligencia-server.pem
+    - chmod 600 ./intelligencia-server.pem
+    - mkdir -p ~/.ssh
+    - ssh-keyscan -H ec2-34-253-79-79.eu-west-1.compute.amazonaws.com >> ~/.ssh/known_hosts
+    - ssh -i "./intelligencia-server.pem" ubuntu@ec2-34-253-79-79.eu-west-1.compute.amazonaws.com -t "/home/ubuntu/front-scripts/deploy-guess-salt-score-front"
+  only:
+    - main
