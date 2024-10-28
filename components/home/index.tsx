@@ -8,7 +8,7 @@ const Home: React.FC = () => {
         <div className="h-full p-5">
             <Image src='/images/bg-home.png' fill alt="Salt home background" style={{ objectFit: 'cover' }} />
             <div className="flex flex-col items-center justify-between relative z-10 h-full">
-                <Header />
+                <Header isLeaderboard={false} />
                 <div className="flex items-center justify-center relative w-full h-full">
                     <Image src='/images/logo.png' width={1000} height={500} alt="Salt home logo" />
                     <div className="absolute right-24 top-24 border-2 border-solid border-[#5B5B5B] rounded-full bg-white p-5">

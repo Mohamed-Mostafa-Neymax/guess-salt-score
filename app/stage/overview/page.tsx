@@ -6,7 +6,7 @@ export default function OverviewPage() {
     return (
         <>
             <div className="flex items-center justify-evenly relative z-10 w-full h-full">
-                <SlideWrapper>
+                <SlideWrapper isShownLogo={true}>
                     <Overview isPopup={false} />
                 </SlideWrapper>
                 <SideActions isGuessingStage={false} />

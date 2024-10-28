@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+
 import "./globals.css";
+import StoreProvider from "@/store/store-provider";
 
 export const metadata: Metadata = {
   title: "Guess Salt Score",
@@ -8,8 +10,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
   return (
-    <html lang="en" className="h-full">
-      <body className="h-full">{children}</body>
-    </html>
+    <StoreProvider>
+      <html lang="en" className="h-full">
+        <body className="h-full">{children}</body>
+      </html>
+    </StoreProvider>
   );
 }
