@@ -4,53 +4,53 @@ import Header from "../home/Header";
 
 const DUMMY_USERS = [
     {
-        name: 'Lional Messi',
+        name: 'Mohamed Hassan',
         score: 96
     },
     {
-        name: 'Ronaldinho',
+        name: 'Mohamed Hisham',
         score: 88
     },
-    {
-        name: 'Inesta',
-        score: 85
-    },
-    {
-        name: 'Suarez',
-        score: 84
-    },
-    {
-        name: 'Xavi',
-        score: 80
-    },
-    {
-        name: 'Xavi',
-        score: 80
-    },
-    {
-        name: 'Xavi',
-        score: 80
-    },
-    {
-        name: 'Xavi',
-        score: 80
-    },
-    {
-        name: 'Xavi',
-        score: 80
-    },
-    {
-        name: 'Xavi',
-        score: 80
-    },
-    {
-        name: 'Xavi',
-        score: 80
-    },
-    {
-        name: 'Xavi',
-        score: 80
-    }
+    // {
+    //     name: 'Inesta',
+    //     score: 85
+    // },
+    // {
+    //     name: 'Suarez',
+    //     score: 84
+    // },
+    // {
+    //     name: 'Xavi',
+    //     score: 80
+    // },
+    // {
+    //     name: 'Xavi',
+    //     score: 80
+    // },
+    // {
+    //     name: 'Xavi',
+    //     score: 80
+    // },
+    // {
+    //     name: 'Xavi',
+    //     score: 80
+    // },
+    // {
+    //     name: 'Xavi',
+    //     score: 80
+    // },
+    // {
+    //     name: 'Xavi',
+    //     score: 80
+    // },
+    // {
+    //     name: 'Xavi',
+    //     score: 80
+    // },
+    // {
+    //     name: 'Xavi',
+    //     score: 80
+    // }
 ]
 
 

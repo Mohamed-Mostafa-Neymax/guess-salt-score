@@ -28,8 +28,8 @@ const SideActions: React.FC<{ isGuessingStage: boolean; }> = ({ isGuessingStage 
                 popup.isOpen && (
                     <div
                         className="absolute w-screen h-screen bg-[#00000082] flex items-center justify-center z-30"
-                        onClick={() => { setPopup(prevState => ({ ...prevState, isOpen: false })) }} >
-                        <div className={`bg-[#F9F4F0] w-4/5 p-20 rounded-3xl relative animatePopup`} onClick={event => event.stopPropagation()}>
+                        onClick={() => { setPopup(prevState => ({ ...prevState, isOpen: false })) }}>
+                        <div className={`bg-[#F9F4F0] w-4/5 p-10 rounded-3xl relative animatePopup`} onClick={event => event.stopPropagation()}>
                             {popup.content === 'overview' && <Overview isPopup={true} onClosePopup={() => { setPopup(prevState => ({ ...prevState, isOpen: false })) }} />}
                             {popup.content === 'refs' && <References onClosePopup={() => { setPopup(prevState => ({ ...prevState, isOpen: false })) }} />}
                             {popup.content === 'startOver' && <SessionPopup onClosePopup={() => { setPopup(prevState => ({ ...prevState, isOpen: false })) }} />}
