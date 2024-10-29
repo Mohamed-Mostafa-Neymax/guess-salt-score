@@ -54,7 +54,7 @@ const Slider: React.FC<{ slides: string[]; guessMode: string; saltScore: string;
                 }
             </Swiper>
             <div className={`flex justify-center gap-10 capitalize ${guessMode === 'BASELINE' ? 'bg-[#1F536B]' : 'bg-[#007259]' } py-5 rounded-b-xl`}>
-                <div className='px-8 border-r-4 border-solid border-white'>
+                <div className='px-8 border-r-2 border-solid border-white'>
                     <p className="text-white text-sm mb-3">SALT SCORE:</p>
                     <p className='text-[#E6AFA4] text-2xl'>{saltScore}</p>
                 </div>
