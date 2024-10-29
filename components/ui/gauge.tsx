@@ -16,8 +16,6 @@ const Gauge: React.FC<{ path: string; }> = ({ path }) => {
 
     function submitGuessHandler() {
         const updatedPatient = localStorage.getItem('current_patient');
-        if (updatedPatient)
-            dispatch(guessActions.persistPatient(+updatedPatient));
         if (!isGuessEstimated)  {
             const key = `patient${currentPatient}_${path.includes('baseline') ? 'baseline' : '24week'}`;
             const points = 100 - Math.abs(correctSaltScore - saltScore);
@@ -28,6 +26,9 @@ const Gauge: React.FC<{ path: string; }> = ({ path }) => {
                     scalpHairCoverage: 100 - saltScore
                 })
             )
+        }
+        if (updatedPatient) {
+            dispatch(guessActions.persistPatient(+updatedPatient));
         }
     }
 

@@ -21,10 +21,8 @@ const Guess: React.FC = () => {
     useEffect(() => {
         dispatch(guessActions.resetGuessing());
         const updatedPatient = localStorage.getItem('current_patient');
-        if (updatedPatient) {
-            console.log('Patient : ', +updatedPatient);
+        if (updatedPatient)
             dispatch(guessActions.persistPatient(+updatedPatient));
-        }
         else
             localStorage.setItem('current_patient', '1');
     }, []);
@@ -32,7 +30,12 @@ const Guess: React.FC = () => {
         dispatch(guessActions.setCorrectScore({
             correctSaltScore: PATIENTS[`patient${currentPatient}`][guessMode].saltScore,
             correctScalpHairCoverage: PATIENTS[`patient${currentPatient}`][guessMode].scalpCoverage
-        }))
+        }));
+        const updatedPatient = localStorage.getItem('current_patient');
+        if (updatedPatient)
+            dispatch(guessActions.persistPatient(+updatedPatient));
+        else
+            localStorage.setItem('current_patient', '1');
     }, [currentPatient, pathname]);
 
 
