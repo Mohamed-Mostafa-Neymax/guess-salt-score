@@ -19,8 +19,8 @@ const CustomButton: React.FC<{
                     isActionBtn && (
                         <Image
                             src='/images/triangle-look-right.png'
-                            width={62}
-                            height={91}
+                            width={30}
+                            height={50}
                             alt="Triangle is a part of the button" />
                     )
                 }
@@ -29,8 +29,8 @@ const CustomButton: React.FC<{
                     isActionBtn && (
                         <Image
                             src='/images/triangle-look-left.png'
-                            width={62}
-                            height={91}
+                            width={30}
+                            height={50}
                             alt="Triangle is a part of the button" />
                     )
                 }

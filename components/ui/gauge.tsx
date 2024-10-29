@@ -41,14 +41,14 @@ const Gauge: React.FC<{ path: string; }> = ({ path }) => {
                 <div className="relative">
                     {
                         isGuessEstimated && (
-                            <div className="absolute z-20 flex items-center w-full h-full pl-[128px] pr-[148px]">
+                            <div className="absolute z-20 flex items-center w-full h-full pl-[73px] pr-[83px]">
                                 <div
-                                    className="relative text-5xl rounded-full w-6 h-6 bg-[#BDD28E] border-4 border-solid border-white"
-                                    style={{ boxShadow: '0px 0px 0px 5px #BDD28E', left: correctSaltScore + '%' }} />
+                                    className="relative text-5xl rounded-full w-2.5 h-2.5 bg-[#BDD28E] border-2 border-solid border-white"
+                                    style={{ boxShadow: '0px 0px 0px 2.5px #BDD28E', left: correctSaltScore + '%' }} />
                             </div>
                         )
                     }
-                    <div className="absolute z-10 w-full h-full flex items-center justify-center px-[128px] pb-4">
+                    <div className="absolute z-10 w-full h-full flex items-center justify-center px-[74px] pb-4">
                         <input
                             type="range"
                             name="gaugeRange"

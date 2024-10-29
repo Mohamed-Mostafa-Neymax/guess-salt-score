@@ -14,8 +14,8 @@ const EnterName: React.FC = () => {
 
     return (
         <div className="fadePage">
-            <div className="pt-20 pl-28 mb-36">
-                <h2 className="text-3xl MontserratBold text-[#018167] mb-28">Earn a spot on the leaderboard!</h2>
+            <div className="pt-10 pl-28 mb-36">
+                <h2 className="text-3xl MontserratBold text-[#018167] mb-16">Earn a spot on the leaderboard!</h2>
                 <label htmlFor="username" className="block text-xl font-bold mb-5">ENTER YOUR NAME</label>
                 <input
                     type="text"

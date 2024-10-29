@@ -13,7 +13,7 @@ const Slider: React.FC<{ slides: string[]; guessMode: string; saltScore: string;
 
     return (
         <>
-            <div className={`text-center capitalize ${guessMode === 'BASELINE' ? 'bg-[#1F536B]' : 'bg-[#007259]' } text-white text-4xl py-5 rounded-t-xl`}>
+            <div className={`text-center capitalize ${guessMode === 'BASELINE' ? 'bg-[#1F536B]' : 'bg-[#007259]' } text-white text-smd py-2 rounded-t-xl`}>
                 {guessMode}
             </div>
             <Swiper
@@ -32,11 +32,11 @@ const Slider: React.FC<{ slides: string[]; guessMode: string; saltScore: string;
                             <div className='relative'>
                                 {
                                     notifySwipe && (
-                                        <div className='absolute bottom-0 w-full flex flex-col items-center pb-20 text-2xl text-white font-light sideBounce'>
+                                        <div className='absolute bottom-0 w-full flex flex-col items-center pb-20 text-md text-white font-light sideBounce'>
                                             <Image
                                                 src='/images/swipe.png'
-                                                width={100}
-                                                height={150}
+                                                width={50}
+                                                height={100}
                                                 alt='Swipe Hint' />
                                             <p>swipe for more angles</p>
                                         </div>
@@ -44,8 +44,8 @@ const Slider: React.FC<{ slides: string[]; guessMode: string; saltScore: string;
                                 }
                                 <Image
                                     src={patientSrc}
-                                    width={550}
-                                    height={650}
+                                    width={300}
+                                    height={380}
                                     alt='patient1_baseline1'
                                     className='swiperSLideImage' />
                             </div>
@@ -54,13 +54,13 @@ const Slider: React.FC<{ slides: string[]; guessMode: string; saltScore: string;
                 }
             </Swiper>
             <div className={`flex justify-center gap-10 capitalize ${guessMode === 'BASELINE' ? 'bg-[#1F536B]' : 'bg-[#007259]' } py-5 rounded-b-xl`}>
-                <div className='px-10 border-r-4 border-solid border-white'>
-                    <p className="text-white text-2xl mb-3">SALT SCORE:</p>
-                    <p className='text-[#E6AFA4] text-4xl'>{saltScore}</p>
+                <div className='px-8 border-r-4 border-solid border-white'>
+                    <p className="text-white text-sm mb-3">SALT SCORE:</p>
+                    <p className='text-[#E6AFA4] text-2xl'>{saltScore}</p>
                 </div>
-                <div>
-                    <p className='text-white text-2xl mb-3'>SCALP COVERAGE:</p>
-                    <p className='text-[#E6AFA4] text-4xl'>{scalpCoverage}<sup>%</sup></p>
+                <div className='pr-8'>
+                    <p className='text-white text-sm mb-3'>SCALP COVERAGE:</p>
+                    <p className='text-[#E6AFA4] text-2xl'>{scalpCoverage}<sup>%</sup></p>
                 </div>
             </div>
         </>
