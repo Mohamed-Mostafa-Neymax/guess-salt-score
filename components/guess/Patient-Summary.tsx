@@ -22,7 +22,7 @@ const PatientSummary: React.FC = () => {
 
     function nextPatientHandler() {
         localStorage.setItem('current_patient', `${currentPatient < 3 ? currentPatient + 1 : 3}`);
-        // dispatch(guessActions.persistPatient(currentPatient < 3 ? currentPatient + 1 : 3));
+        dispatch(guessActions.persistPatient(currentPatient < 3 ? currentPatient + 1 : 3));
     }
 
     return (
