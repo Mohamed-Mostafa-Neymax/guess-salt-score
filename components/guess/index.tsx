@@ -42,7 +42,7 @@ const Guess: React.FC = () => {
                     guessMode={guessMode.replace(/(\D)(\d)/, '$1 $2').toUpperCase()}
                     saltScore={isGuessEstimated ? PATIENTS[`patient${currentPatient}`][guessMode].saltScore : '??'}
                     scalpCoverage={isGuessEstimated ? PATIENTS[`patient${currentPatient}`][guessMode].scalpCoverage : '??'} />
-                <p className='text-xs my-5'>
+                <p className='text-xs my-2'>
                     Real patient images from the LITFULO pivotal clinical study. All patients shown are ≥12 years of age. Patient images are used with permission.
                 </p>
                 <div className='text-[#67917D] text-xs MontserratBold flex justify-end items-center gap-5'>
@@ -60,7 +60,7 @@ const Guess: React.FC = () => {
                     </div>
                 </div>
             </div>
-            <div className='w-full flex flex-col justify-between'>
+            <div className='w-full flex flex-col gap-20'>
                 {
                     isGuessEstimated && correctSaltScore != saltScore ? (
                         <div className='flex justify-center'><Image src='/images/good-guess.png' width={300} height={150} alt="Congrats for the earned points" /></div>
