@@ -6,7 +6,7 @@ const Instructions: React.FC = () => {
         <div className="flex gap-10 fadePage">
             <div className="max-w-[720px] font-bold">
                 <h2 className="text-3xl MontserratBold text-[#018167] text-center mb-10 invisible">Instructions</h2>
-                <Image src='/images/instructions.png' width={800} height={500} alt="Instructions image" className="mb-5" />
+                <Image src='/images/instructions.PNG' width={800} height={500} alt="Instructions image" className="mb-5" />
                 <p className="text-xs">
                     In 6 months, 13.4% of patients achieved SALT ≤10 with LITFULO 50 mg QD vs 1.5% with placebo (primary endpoint) and 23% of patients achieved SALT ≤20 with LITFULO 50 mg QD vs 1.6% with placebo (secondary endpoint).³ Patient images demonstrate an example of a patient who met the clinical trial primary endpoint of SALT ≤10 at Week 24. Individual results may vary.³<br />
                     <br />
