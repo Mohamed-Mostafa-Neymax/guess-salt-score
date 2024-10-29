@@ -9,7 +9,7 @@ deploy:
     - echo "Key written to file"
     - chmod 600 ./intelligencia-server.pem
     - mkdir -p ~/.ssh
-    - ssh-keyscan -H 34.253.79.79>> ~/.ssh/known_hosts || { echo "ssh-keyscan failed"; exit 1; }
+    - ssh-keyscan -H ec2-34-253-79-79.eu-west-1.compute.amazonaws.com >> ~/.ssh/known_hosts || { echo "ssh-keyscan failed"; exit 1; }
     - echo "Attempting SSH connection..."
     - ssh -i "./intelligencia-server.pem" ubuntu@ec2-34-253-79-79.eu-west-1.compute.amazonaws.com -t "/home/ubuntu/front-scripts/deploy-guess-salt-score-front" || { echo "SSH connection failed"; exit 1; }
   only:
