@@ -28,7 +28,7 @@ const PatientSummary: React.FC = () => {
         <div className="flex gap-5 fadePage">
             <div className="w-[1000px]">
                 <div className="flex gap-5">
-                    <div className="w-[250px] max-w-[250px] font-bold mt-7">
+                    <div className="w-[250px] max-w-[250px] font-bold mt-6">
                         <Slider
                             slides={PATIENTS[`patient${currentPatient}`].baseline.slides}
                             guessMode='BASELINE'
@@ -36,7 +36,7 @@ const PatientSummary: React.FC = () => {
                             scalpCoverage={PATIENTS[`patient${currentPatient}`].baseline.scalpCoverage} />
                     </div>
 
-                    <div className="w-[250px] max-w-[250px] font-bold mt-7">
+                    <div className="w-[250px] max-w-[250px] font-bold mt-6">
                         <Slider
                             slides={PATIENTS[`patient${currentPatient}`].week24.slides}
                             guessMode='WEEK 24'
