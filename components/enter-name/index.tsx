@@ -9,11 +9,11 @@ const EnterName: React.FC = () => {
     const [username, setUsername] = useState<string>('');
 
     function onSubmitHandler() {
-        console.log('Submit ...');
+        localStorage.setItem('username_salt', username);
     }
 
     return (
-        <>
+        <div className="fadePage">
             <div className="pt-20 pl-28 mb-36">
                 <h2 className="text-5xl MontserratBold text-[#018167] mb-28">Earn a spot on the leaderboard!</h2>
                 <label htmlFor="username" className="block text-3xl font-bold mb-5">ENTER YOUR NAME</label>
@@ -32,7 +32,7 @@ const EnterName: React.FC = () => {
                     typeBtn='submit'
                     onSubmitHandler={onSubmitHandler}>LEARN ABOUT SALT</CustomButton>
             </div>
-        </>
+        </div>
     )
 }
 

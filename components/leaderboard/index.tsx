@@ -56,7 +56,7 @@ const DUMMY_USERS = [
 
 const Leaderboard: React.FC = () => {
     return (
-        <div className="h-full flex flex-col justify-between items-center">
+        <div className="h-full flex flex-col justify-between items-center fadePage">
             <div className="overflow-scroll px-24">
                 <div className="mb-4 flex justify-center">
                     <Image src='/images/top-scores.png' width={500} height={200} alt="Congrats for the earned points" />

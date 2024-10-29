@@ -2,7 +2,7 @@ import CustomButton from "../ui/button";
 
 const Summary: React.FC = () => {
     return (
-        <div className="flex flex-col items-center justify-between h-full">
+        <div className="flex flex-col items-center justify-between h-full fadePage">
             <div className="h-full flex flex-col justify-center px-20">
                 <h2 className="text-5xl MontserratBold text-[#018167] mb-10">Summary of LITFULO safety profile</h2>
                 <p className="text-3xl font-semibold mb-10 text-left">

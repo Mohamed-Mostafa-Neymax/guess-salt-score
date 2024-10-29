@@ -3,7 +3,7 @@ import CustomButton from "../ui/button";
 
 const Overview: React.FC<{ isPopup: boolean; onClosePopup?: () => void; }> = ({ isPopup, onClosePopup }) => {
     return (
-        <>
+        <div className="fadePage">
             <div className="pt-20 pl-28 mb-28">
                 <h2 className="text-5xl MontserratBold text-[#018167] mb-10">Using SALT to measure scalp hair loos<sup>1-3</sup></h2>
                 <ul className="list-disc font-semibold text-xl pl-6">
@@ -52,7 +52,7 @@ const Overview: React.FC<{ isPopup: boolean; onClosePopup?: () => void; }> = ({ 
                 }
                 
             </div>
-        </>
+        </div>
     )
 }
 

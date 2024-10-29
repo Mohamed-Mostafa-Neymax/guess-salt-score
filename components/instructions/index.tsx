@@ -3,7 +3,7 @@ import CustomButton from "../ui/button";
 
 const Instructions: React.FC = () => {
     return (
-        <div className="flex gap-20">
+        <div className="flex gap-20 fadePage">
             <div className="max-w-[720px] font-bold">
                 <h2 className="text-4xl MontserratBold text-[#018167] text-center mb-40 invisible">Instructions</h2>
                 <Image src='/images/instructions.png' width={800} height={500} alt="Instructions image" className="mb-5" />

@@ -10,7 +10,7 @@ const ThankYou: React.FC = () => {
     const [isPopupActive, setIsPopupActive] = useState<boolean>(false);
 
     return (
-        <>
+        <div className="h-full fadePage">
             {
                 isPopupActive && (
                     <div
@@ -52,7 +52,7 @@ const ThankYou: React.FC = () => {
                         className="text-[#04303E] text-3xl MontserratBold underline mt-28">BASISINFORMATION - FACHKREISE {'>'}</button>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
