@@ -49,7 +49,7 @@ const ThankYou: React.FC = () => {
                     <button
                         type="button"
                         onClick={() => { setIsPopupActive(prevState => true) }}
-                        className="text-[#04303E] text-xs MontserratBold underline mt-28">BASISINFORMATION - FACHKREISE {'>'}</button>
+                        className="text-[#04303E] text-xs MontserratBold underline mt-7">BASISINFORMATION - FACHKREISE {'>'}</button>
                 </div>
             </div>
         </div>
