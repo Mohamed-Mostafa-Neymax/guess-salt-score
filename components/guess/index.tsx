@@ -19,9 +19,12 @@ const Guess: React.FC = () => {
     const saltScore = useAppSelector(state => state.guessReducer.saltScore);
     const correctSaltScore = useAppSelector(state => state.guessReducer.correctSaltScore);
     useEffect(() => {
+        dispatch(guessActions.resetGuessing());
         const updatedPatient = localStorage.getItem('current_patient');
-        if (updatedPatient)
+        if (updatedPatient) {
+            console.log('Patient : ', +updatedPatient);
             dispatch(guessActions.persistPatient(+updatedPatient));
+        }
         else
             localStorage.setItem('current_patient', '1');
     }, []);

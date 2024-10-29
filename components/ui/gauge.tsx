@@ -14,14 +14,8 @@ const Gauge: React.FC<{ path: string; }> = ({ path }) => {
     const correctSaltScore = useAppSelector(state => state.guessReducer.correctSaltScore);
     const currentPatient = useAppSelector(state => state.guessReducer.patient);
 
-    function gaugeHandler(event: any) {
-        setSaltScore(event.target.value);
-    }
-
     function submitGuessHandler() {
-        if (isGuessEstimated) {
-            dispatch(guessActions.resetGuessing());
-        } else {
+        if (!isGuessEstimated)  {
             const key = `patient${currentPatient}_${path.includes('baseline') ? 'baseline' : '24week'}`;
             const points = 100 - Math.abs(correctSaltScore - saltScore);
             localStorage.setItem(key, `${points}`);
@@ -56,7 +50,7 @@ const Gauge: React.FC<{ path: string; }> = ({ path }) => {
                             max="100"
                             value={saltScore}
                             className="w-full"
-                            onInput={gaugeHandler} />
+                            onInput={(event: any) => { setSaltScore(event.target.value); }} />
                     </div>
                     <Image src='/images/degrees-line.png' width={938} height={150} alt="Gauge" />
                 </div>

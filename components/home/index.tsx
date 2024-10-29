@@ -1,48 +1,9 @@
-'use client';
-
 import Image from "next/image";
 
 import Header from "./Header";
 import Footer from "./Footer";
-import { useEffect, useState } from "react";
 
 const Home: React.FC = () => {
-    const [isFullscreen, setIsFullscreen] = useState(false);
-
-    useEffect(() => {
-        const handleFullscreenChange = () => {
-            setIsFullscreen(!!document.fullscreenElement);
-        };
-
-        const handleClick = () => {
-            if (!isFullscreen && !/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                const elem = document.documentElement as HTMLElement & {
-                    mozRequestFullScreen?: () => Promise<void>;
-                    webkitRequestFullscreen?: () => Promise<void>;
-                    msRequestFullscreen?: () => Promise<void>;
-                };
-
-                if (elem.requestFullscreen) {
-                    elem.requestFullscreen().catch((err) => console.log(err));
-                } else if (elem.mozRequestFullScreen) {
-                    elem.mozRequestFullScreen().catch((err) => console.log(err));
-                } else if (elem.webkitRequestFullscreen) {
-                    elem.webkitRequestFullscreen().catch((err) => console.log(err));
-                } else if (elem.msRequestFullscreen) {
-                    elem.msRequestFullscreen().catch((err) => console.log(err));
-                }
-            }
-        };
-
-        document.addEventListener('fullscreenchange', handleFullscreenChange);
-        document.body.addEventListener('click', handleClick);
-
-        return () => {
-            document.removeEventListener('fullscreenchange', handleFullscreenChange);
-            document.body.removeEventListener('click', handleClick);
-        };
-    }, [isFullscreen]);
-
     return (
         <div className="h-full p-5">
             <Image src='/images/bg-home.png' fill alt="Salt home background" style={{ objectFit: 'cover' }} />
