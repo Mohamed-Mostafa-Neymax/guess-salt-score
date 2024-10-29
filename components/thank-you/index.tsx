@@ -24,13 +24,13 @@ const ThankYou: React.FC = () => {
             }
             <div className="flex justify-between h-full">
                 <div className="h-full flex items-end justify-center">
-                    <p className="text-xs absolute left-3 font-semibold">Patient portrayal.</p>
+                    <p className="text-xs absolute left-1 font-semibold">Patient portrayal.</p>
                     <Image
                         src='/images/thank-you.png'
                         width={400}
                         height={300}
                         alt="Salt home logo"
-                        className="absolute -left-2 bottom-0" />
+                        className="absolute left-3 bottom-0" />
                 </div>
                 <div className="flex flex-col justify-between h-full w-full max-w-[450px]">
                     <div className="flex flex-col items-center justify-center h-full">
