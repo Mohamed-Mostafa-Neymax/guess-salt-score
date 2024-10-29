@@ -13,4 +13,4 @@ deploy:
     - echo "Attempting SSH connection..."
     - ssh -i "./intelligencia-server.pem" ubuntu@ec2-34-253-79-79.eu-west-1.compute.amazonaws.com -t "/home/ubuntu/front-scripts/deploy-guess-salt-score-front" || { echo "SSH connection failed"; exit 1; }
   only:
-    - main
+    - master
