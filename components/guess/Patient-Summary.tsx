@@ -45,26 +45,28 @@ const PatientSummary: React.FC = () => {
                     </div>
                 </div>
                 <p className='text-xs mt-1.5'>
-                Real patient images from the LITFULO pivotal clinical study. All patients shown are ≥12 years of age. Patient images are used with permission.⁴
+                    Real patient images from the LITFULO pivotal clinical study. All patients shown are ≥12 years of age. Patient images are used with permission.⁴
                 </p>
                 <p className='text-xs mt-1.5'>
-                Patient images demonstrate an example of a patient who met the clinical trial primary endpoint of SALT ≤10 at Week 24. Individual results may vary.³
+                    Patient images demonstrate an example of a patient who met the clinical trial primary endpoint of SALT ≤10 at Week 24. Individual results may vary.³
                 </p>
-                <p className='text-xs mt-1.5'>
-                    QD=once daily; SALT=Severity of Alopecia Tool.
-                </p>
-                <div className='text-[#67917D] text-xs MontserratBold flex justify-end items-center gap-5'>
-                    <p>Patient:</p>
-                    <div className='flex border-2 border-solid border-[#67917D] rounded-xl bg-[#67917D]'>
-                        {
-                            [1, 2, 3].map((patientItem, index) => (
-                                <p
-                                    key={`patient_${index}`}
-                                    className={`px-4 py-1 ${patientItem === 1 ? 'rounded-l-xl' : patientItem === 3 ? 'rounded-r-xl' : 'rounded-none'} ${patientItem === currentPatient ? 'bg-[#67917D] text-white' : 'bg-white text-[#67917D]'}`}>
-                                    {patientItem}
-                                </p>
-                            ))
-                        }
+                <div className="flex justify-between">
+                    <p className='text-xs mt-1.5'>
+                        QD=once daily; SALT=Severity of Alopecia Tool.
+                    </p>
+                    <div className='text-[#67917D] text-xs MontserratBold flex justify-end items-center gap-5'>
+                        <p>Patient:</p>
+                        <div className='flex border-2 border-solid border-[#67917D] rounded-xl bg-[#67917D]'>
+                            {
+                                [1, 2, 3].map((patientItem, index) => (
+                                    <p
+                                        key={`patient_${index}`}
+                                        className={`px-4 py-1 ${patientItem === 1 ? 'rounded-l-xl' : patientItem === 3 ? 'rounded-r-xl' : 'rounded-none'} ${patientItem === currentPatient ? 'bg-[#67917D] text-white' : 'bg-white text-[#67917D]'}`}>
+                                        {patientItem}
+                                    </p>
+                                ))
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
@@ -80,7 +82,7 @@ const PatientSummary: React.FC = () => {
                         isDisabled={false}
                         typeBtn='submit'
                         onSubmitHandler={nextPatientHandler}>
-                        {currentPatient === 3 ? 'SEE YOUR RESULTS': 'NEXT PATIENT'}
+                        {currentPatient === 3 ? 'SEE YOUR RESULTS' : 'NEXT PATIENT'}
                     </CustomButton>
                 </div>
             </div>
