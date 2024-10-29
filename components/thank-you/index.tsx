@@ -24,20 +24,20 @@ const ThankYou: React.FC = () => {
             }
             <div className="flex justify-between h-full">
                 <div className="h-full flex items-end justify-center">
-                    <p className="text-xl absolute left-10 font-semibold">Patient portrayal.</p>
+                    <p className="text-xs absolute left-3 font-semibold">Patient portrayal.</p>
                     <Image
                         src='/images/thank-you.png'
-                        width={800}
+                        width={400}
                         height={300}
                         alt="Salt home logo"
-                        className="absolute left-0 bottom-0" />
+                        className="absolute left-3 bottom-0" />
                 </div>
-                <div className="flex flex-col justify-between h-full w-full max-w-[800px]">
+                <div className="flex flex-col justify-between h-full w-full max-w-[450px]">
                     <div className="flex flex-col items-center justify-center h-full">
-                        <h2 className="text-5xl MontserratBold text-[#018167] mb-10">Scalp hair loss takes an emotional toll⁵,⁷</h2>
-                        <p className="text-3xl text-left pb-10 mb-10 border-b border-solid border-[#AFA5A3] font-semibold">Scalp hair loss can be devastating for some patients. In addition to assessing SALT scores, the emotional aspect of the condition and its impact on patients’ lives is critical when discussing appropriate treatment plans.</p>
-                        <h2 className="text-4xl MontserratBold text-[#018167] mb-10">Thank you for interacting with</h2>
-                        <Image src='/images/logo.png' width={300} height={300} alt="Salt home logo" className="mb-28" />
+                        <h2 className="text-3xl MontserratBold text-[#018167] text-center mb-10">Scalp hair loss takes an emotional toll⁵,⁷</h2>
+                        <p className="text-md text-left pb-5 mb-5 border-b border-solid border-[#AFA5A3] font-semibold">Scalp hair loss can be devastating for some patients. In addition to assessing SALT scores, the emotional aspect of the condition and its impact on patients’ lives is critical when discussing appropriate treatment plans.</p>
+                        <h2 className="text-xl MontserratBold text-[#018167] mb-10">Thank you for interacting with</h2>
+                        <Image src='/images/logo.png' width={220} height={220} alt="Salt home logo" className="mb-28" />
                         <CustomButton
                             path='/stage/leaderboard'
                             isActionBtn={false}
@@ -49,7 +49,7 @@ const ThankYou: React.FC = () => {
                     <button
                         type="button"
                         onClick={() => { setIsPopupActive(prevState => true) }}
-                        className="text-[#04303E] text-3xl MontserratBold underline mt-28">BASISINFORMATION - FACHKREISE {'>'}</button>
+                        className="text-[#04303E] text-xs MontserratBold underline mt-28">BASISINFORMATION - FACHKREISE {'>'}</button>
                 </div>
             </div>
         </div>

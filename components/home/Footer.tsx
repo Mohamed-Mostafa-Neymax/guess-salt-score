@@ -2,7 +2,7 @@ import CustomButton from "../ui/button"
 
 const Footer: React.FC = () => {
     return (
-        <div className="flex justify-between items-end w-full text-[#C0E0E8]">
+        <div className="flex justify-between items-end w-full text-[#C0E0E8] text-xs">
             <div className="w-5/12">
                 <p className="mb-4">SALT=Severity of Alopecia Tool</p>
                 <p>
