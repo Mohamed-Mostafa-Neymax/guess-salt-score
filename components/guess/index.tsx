@@ -60,7 +60,7 @@ const Guess: React.FC = () => {
                     </div>
                 </div>
             </div>
-            <div className='w-full flex flex-col gap-20'>
+            <div className='w-full flex flex-col gap-16'>
                 {
                     isGuessEstimated && correctSaltScore != saltScore ? (
                         <div className='flex justify-center'><Image src='/images/good-guess.png' width={300} height={150} alt="Congrats for the earned points" /></div>
