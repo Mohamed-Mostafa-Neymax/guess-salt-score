@@ -28,7 +28,7 @@ const PatientSummary: React.FC = () => {
         <div className="flex gap-5 fadePage">
             <div className="w-[1000px]">
                 <div className="flex gap-5">
-                    <div className="w-[250px] max-w-[250px] font-bold mt-10">
+                    <div className="w-[250px] max-w-[250px] font-bold mt-7">
                         <Slider
                             slides={PATIENTS[`patient${currentPatient}`].baseline.slides}
                             guessMode='BASELINE'
@@ -36,7 +36,7 @@ const PatientSummary: React.FC = () => {
                             scalpCoverage={PATIENTS[`patient${currentPatient}`].baseline.scalpCoverage} />
                     </div>
 
-                    <div className="w-[250px] max-w-[250px] font-bold mt-10">
+                    <div className="w-[250px] max-w-[250px] font-bold mt-7">
                         <Slider
                             slides={PATIENTS[`patient${currentPatient}`].week24.slides}
                             guessMode='WEEK 24'
@@ -44,13 +44,13 @@ const PatientSummary: React.FC = () => {
                             scalpCoverage={PATIENTS[`patient${currentPatient}`].week24.scalpCoverage} />
                     </div>
                 </div>
-                <p className='text-xs my-2'>
-                    Real patient images from the LITFULO pivotal clinical study. All patients shown are ≥12 years of age. Patient images are used with permission.⁴
-                    <br />
-                    <br />
-                    Patient images demonstrate an example of a patient who met the clinical trial primary endpoint of SALT ≤10 at Week 24. Individual results may vary.³
-                    <br />
-                    <br />
+                <p className='text-xs mt-1.5'>
+                Real patient images from the LITFULO pivotal clinical study. All patients shown are ≥12 years of age. Patient images are used with permission.⁴
+                </p>
+                <p className='text-xs mt-1.5'>
+                Patient images demonstrate an example of a patient who met the clinical trial primary endpoint of SALT ≤10 at Week 24. Individual results may vary.³
+                </p>
+                <p className='text-xs mt-1.5'>
                     QD=once daily; SALT=Severity of Alopecia Tool.
                 </p>
                 <div className='text-[#67917D] text-xs MontserratBold flex justify-end items-center gap-5'>
