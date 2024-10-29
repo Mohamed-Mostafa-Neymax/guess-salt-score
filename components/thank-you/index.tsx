@@ -30,7 +30,7 @@ const ThankYou: React.FC = () => {
                         width={400}
                         height={300}
                         alt="Salt home logo"
-                        className="absolute left-1 bottom-0" />
+                        className="absolute -left-2 bottom-0" />
                 </div>
                 <div className="flex flex-col justify-between h-full w-full max-w-[450px]">
                     <div className="flex flex-col items-center justify-center h-full">
