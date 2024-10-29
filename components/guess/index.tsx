@@ -1,13 +1,14 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import { useEffect } from 'react';
+import Image from 'next/image';
+
 import { useAppDispatch, useAppSelector } from '@/store';
 import Slider from '../ui/slider';
 import { PATIENTS } from '@/model/patients';
 import Gauge from '../ui/gauge';
-import { useEffect } from 'react';
 import { guessActions } from '@/store/guess-slice';
-import Image from 'next/image';
 
 const Guess: React.FC = () => {
     const dispatch = useAppDispatch();
