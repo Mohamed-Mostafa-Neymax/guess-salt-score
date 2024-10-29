@@ -4,7 +4,7 @@ import CustomButton from "../ui/button";
 const Overview: React.FC<{ isPopup: boolean; onClosePopup?: () => void; }> = ({ isPopup, onClosePopup }) => {
     return (
         <div className="fadePage">
-            <div className="pt-10 pl-28 mb-10">
+            <div className="pt-5 pl-28 mb-7">
                 <h2 className="text-2xl MontserratBold text-[#018167] mb-10">Using SALT to measure scalp hair loos<sup>1-3</sup></h2>
                 <ul className="list-disc font-semibold text-xs pl-6">
                     <li className="mb-4">The Severity of Alopecia Tool (SALT) score measures hair loss on a scale of 0 (no scalp hair loss) to 100 (complete scalp hair loss)</li>
@@ -21,7 +21,7 @@ const Overview: React.FC<{ isPopup: boolean; onClosePopup?: () => void; }> = ({ 
                     </div>
                 </div>
                 <div className="text-center pl-10 max-w-[500px]">
-                    <h2 className="mb-5 text-md MontserratBold">The SALT score equals the sum of the proportions of scalp hair loss per quadrant</h2>
+                    <h2 className="mb-5 text-xs MontserratBold">The SALT score equals the sum of the proportions of scalp hair loss per quadrant</h2>
                     <div className="flex justify-evenly text-xs mb-5">
                         <div className="flex flex-col justify-between">
                             <Image src='/images/head-left.png' width={100} height={200} alt="Degrees of SALT" />
