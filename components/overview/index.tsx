@@ -41,7 +41,7 @@ const Overview: React.FC<{ isPopup: boolean; onClosePopup?: () => void; }> = ({ 
                         <button
                             type="button"
                             onClick={onClosePopup}
-                            className="text-[#04303E] text-3xl MontserratBold underline">CLOSE</button>
+                            className="text-[#04303E] text-xl MontserratBold underline">CLOSE</button>
                     ) : (
                         <CustomButton
                             path="/stage/instructions"
