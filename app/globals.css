@@ -157,7 +157,6 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .fadePage {
-  top: 100px;
   animation-name: FadeIn;
   animation-duration: 1s;
   animation-timing-function: ease-in-out;

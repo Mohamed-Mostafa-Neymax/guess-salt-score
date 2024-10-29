@@ -26,11 +26,11 @@ const Congrats: React.FC = () => {
     return (
         <div className="flex flex-col items-center justify-center h-full gap-8 relative fadePage">
             <div className="mb-4">
-                <Image src='/images/congrats.png' width={700} height={300} alt="Congrats for the earned points" />
+                <Image src='/images/congrats.png' width={500} height={300} alt="Congrats for the earned points" />
             </div>
-            <p className="text-5xl MontserratBold">You scored {points} points</p>
-            <p className="text-3xl MontserratBold mb-4">and secured a spot on the leaderboard!</p>
-            <p className="text-4xl font-bold mb-48">Thank you for participating!</p>
+            <p className="text-4xl MontserratBold">You scored {points} points</p>
+            <p className="text-2xl MontserratBold mb-4">and secured a spot on the leaderboard!</p>
+            <p className="text-3xl font-bold">Thank you for participating!</p>
             <CustomButton
                 path='/stage/summary'
                 isActionBtn={false}
@@ -39,11 +39,11 @@ const Congrats: React.FC = () => {
                 onSubmitHandler={onSubmitHandler}>
                 DISCOVER MORE
             </CustomButton>
-            <div className="absolute -bottom-10 w-full flex justify-center items-center gap-5">
+            <div className="absolute bottom-0 w-full flex justify-center items-center gap-5">
                 <div>
-                    <Image src='/images/pfizer.png' width={100} height={50} alt="Congrats for the earned points" />
+                    <Image src='/images/pfizer.png' width={50} height={20} alt="Congrats for the earned points" />
                 </div>
-                <p className="text-xl">&#169; 2023 Pfizer Inc. All rights reserved.</p>
+                <p className="text-xs">&#169; 2023 Pfizer Inc. All rights reserved.</p>
             </div>
         </div>
     )
