@@ -1,15 +1,30 @@
 'use client';
 
-import Image from "next/image";
 import { useState } from "react";
 
 import CustomButton from "@/components/ui/button";
 
+interface FullscreenHTMLElement extends HTMLElement {
+    webkitRequestFullscreen?: () => Promise<void>;
+    msRequestFullscreen?: () => Promise<void>;
+}
+
 const EnterName: React.FC = () => {
     const [username, setUsername] = useState<string>('');
+    const openFullscreen = () => {
+        const element = document.documentElement as FullscreenHTMLElement;
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.webkitRequestFullscreen) { // Safari
+            element.webkitRequestFullscreen();
+        } else if (element.msRequestFullscreen) { // Older versions of Internet Explorer/Edge
+            element.msRequestFullscreen();
+        }
+    };
 
     function onSubmitHandler() {
         localStorage.setItem('username_salt', username);
+        openFullscreen();
     }
 
     return (
