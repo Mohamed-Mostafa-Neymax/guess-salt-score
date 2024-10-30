@@ -1,9 +1,25 @@
+'use client';
+
 import Image from "next/image";
 
 import Header from "./Header";
 import Footer from "./Footer";
+import { useEffect } from "react";
 
 const Home: React.FC = () => {
+    const openFullscreen = () => {
+        const element = document.documentElement as any;
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.webkitRequestFullscreen) { // Safari
+            element.webkitRequestFullscreen();
+        }
+    };
+
+    useEffect(() => {
+        openFullscreen();
+    }, []);
+
     return (
         <div className="h-full p-5">
             <Image src='/images/bg-home.png' fill alt="Salt home background" style={{ objectFit: 'cover' }} />
