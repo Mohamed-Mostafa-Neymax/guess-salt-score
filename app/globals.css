@@ -50,10 +50,21 @@ body {
 }
 
 @keyframes SideBounce {
-  0% { margin-left: 0px; }
-  33% { margin-left: 20px; }
-  66% { margin-left: -20px; }
-  100% { margin-left: 0px; }
+  0% {
+    margin-left: 0px;
+  }
+
+  33% {
+    margin-left: 20px;
+  }
+
+  66% {
+    margin-left: -20px;
+  }
+
+  100% {
+    margin-left: 0px;
+  }
 }
 
 .stoked-title {
@@ -67,6 +78,7 @@ body {
   width: 100%;
   /* height: 100%; */
 }
+
 .swiper-wrapper {
   max-height: 707px;
 }
@@ -97,6 +109,7 @@ body {
   opacity: unset;
   background-color: transparent;
 }
+
 .swiper-pagination-bullet:first-child {
   background-image: url(/images/fourInOne-pagination.png);
   background-size: cover;
@@ -105,6 +118,7 @@ body {
   border-radius: 0;
   border: unset !important;
 }
+
 .swiper-pagination-bullet-active:first-child {
   background-image: url(/images/fourInOne-active-pagination.png) !important;
 }
@@ -116,9 +130,10 @@ body {
 
 input[type="range"] {
   -webkit-appearance: none;
-   appearance: none;
-   background: transparent;
-   cursor: pointer;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  height: 75px;
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
@@ -135,7 +150,8 @@ input[type="range"]::-moz-range-track {
 }
 
 input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
+  -webkit-appearance: none;
+  /* Override default look */
   appearance: none;
   background-color: #EEB6A5;
   border: 2px solid #fff;
