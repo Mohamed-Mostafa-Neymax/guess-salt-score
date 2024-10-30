@@ -41,7 +41,7 @@ const Gauge: React.FC<{ path: string; }> = ({ path }) => {
                         isGuessEstimated && (
                             <div className="absolute z-20 flex items-center w-full h-full pl-[73px] pr-[83px]">
                                 <div
-                                    className="relative text-5xl rounded-full w-2.5 h-2.5 bg-[#BDD28E] border-2 border-solid border-white"
+                                    className="relative text-5xl rounded-full w-[0.9rem] h-[0.9rem] bg-[#BDD28E] border-2 border-solid border-white"
                                     style={{ boxShadow: '0px 0px 0px 2.5px #BDD28E', left: correctSaltScore + '%' }} />
                             </div>
                         )
