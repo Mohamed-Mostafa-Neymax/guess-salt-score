@@ -50,10 +50,21 @@ body {
 }
 
 @keyframes SideBounce {
-  0% { margin-left: 0px; }
-  33% { margin-left: 50px; }
-  66% { margin-left: -50px; }
-  100% { margin-left: 0px; }
+  0% {
+    margin-left: 0px;
+  }
+
+  33% {
+    margin-left: 20px;
+  }
+
+  66% {
+    margin-left: -20px;
+  }
+
+  100% {
+    margin-left: 0px;
+  }
 }
 
 .stoked-title {
@@ -67,6 +78,7 @@ body {
   width: 100%;
   /* height: 100%; */
 }
+
 .swiper-wrapper {
   max-height: 707px;
 }
@@ -90,13 +102,14 @@ body {
 }
 
 .swiper-pagination div {
-  width: 30px;
-  height: 30px;
+  width: 16px;
+  height: 16px;
   border: 2px solid white;
   border-radius: 50%;
   opacity: unset;
   background-color: transparent;
 }
+
 .swiper-pagination-bullet:first-child {
   background-image: url(/images/fourInOne-pagination.png);
   background-size: cover;
@@ -105,6 +118,7 @@ body {
   border-radius: 0;
   border: unset !important;
 }
+
 .swiper-pagination-bullet-active:first-child {
   background-image: url(/images/fourInOne-active-pagination.png) !important;
 }
@@ -116,14 +130,14 @@ body {
 
 input[type="range"] {
   -webkit-appearance: none;
-   appearance: none;
-   background: transparent;
-   cursor: pointer;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
   background: #fff;
-  height: 10px;
+  height: 5px;
   position: relative;
   top: 6px;
   border-radius: 30px;
@@ -135,16 +149,17 @@ input[type="range"]::-moz-range-track {
 }
 
 input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
+  -webkit-appearance: none;
+  /* Override default look */
   appearance: none;
   background-color: #EEB6A5;
-  border: 4px solid #fff;
-  box-shadow: 0px 0px 0px 5px #EEB6A5;
-  height: 1.5rem;
-  width: 1.5rem;
+  border: 2px solid #fff;
+  box-shadow: 0px 0px 0px 2.5px #EEB6A5;
+  height: 0.9rem;
+  width: 0.9rem;
   border-radius: 50%;
   position: relative;
-  bottom: 6px;
+  bottom: 4px;
 }
 
 .animatePopup {
@@ -157,7 +172,6 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .fadePage {
-  top: 100px;
   animation-name: FadeIn;
   animation-duration: 1s;
   animation-timing-function: ease-in-out;

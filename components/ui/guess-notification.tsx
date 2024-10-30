@@ -11,11 +11,11 @@ const GuessNotification: React.FC<{ saltScore: number; isActualScore: boolean; }
         <div className="w-full">
             {
                 isActualScore && (
-                    <div className="w-full px-[120px]">
+                    <div className="w-full px-[70px]">
                         <Image
                             src='/images/arrow-good.png'
-                            width={50}
-                            height={70}
+                            width={30}
+                            height={50}
                             alt="arrow"
                             className="relative"
                             style={{ left: (saltScore - 4) + '%' }} />
@@ -23,19 +23,19 @@ const GuessNotification: React.FC<{ saltScore: number; isActualScore: boolean; }
                 )
             }
             <div
-                className={`${isActualScore ? 'bg-[#C4DC8D]' : 'bg-[#E6AFA4]'} w-fit p-2 rounded-xl text-center relative z-10`}
+                className={`${isActualScore ? 'bg-[#C4DC8D]' : 'bg-[#E6AFA4]'} w-fit p-1 rounded-xl text-center relative z-10`}
                 style={{ left: (saltScore / 2) + '%' }}>
-                <p className="MontserratBold text-xl pb-2">YOUR GUESS</p>
-                <div className='flex justify-center gap-10 capitalize bg-white py-5 rounded-b-xl p-3 font-semibold text-xs'>
-                    <div className={`px-10 border-r-4 border-solid ${isActualScore ? 'border-[#C4DC8D]' : 'border-[#E6AFA4]'}`}>
-                        <p className="text-black text-2xl mb-3">SALT<br />SCORE:</p>
-                        <p className={`${isActualScore ? 'text-[#C4DC8D]' : 'text-[#E6AFA4]'} text-4xl`}>
+                <p className="MontserratBold text-sm pb-1">YOUR GUESS</p>
+                <div className='flex justify-center gap-10 capitalize bg-white rounded-b-xl p-2 font-semibold text-xs'>
+                    <div className={`px-5 border-r-4 border-solid ${isActualScore ? 'border-[#C4DC8D]' : 'border-[#E6AFA4]'}`}>
+                        <p className="text-black text-md mb-3">SALT<br />SCORE:</p>
+                        <p className={`${isActualScore ? 'text-[#C4DC8D]' : 'text-[#E6AFA4]'} text-3xl`}>
                             {isActualScore && isGuessEstimated ? correctSaltScore : isActualScore && !isGuessEstimated ? '??' : saltScore}
                         </p>
                     </div>
-                    <div className="pr-10">
-                        <p className='text-black text-2xl mb-3'>SCALP HAIR<br />COVERAGE {'(%)'}</p>
-                        <p className={`${isActualScore ? 'text-[#C4DC8D]' : 'text-[#E6AFA4]'} text-4xl`}>
+                    <div className="pr-5">
+                        <p className='text-black text-md mb-3'>SCALP HAIR<br />COVERAGE {'(%)'}</p>
+                        <p className={`${isActualScore ? 'text-[#C4DC8D]' : 'text-[#E6AFA4]'} text-3xl`}>
                             {isActualScore && isGuessEstimated ? (
                                 <>
                                     {correctScalpHairCoverage}<sup>%</sup>
@@ -52,11 +52,11 @@ const GuessNotification: React.FC<{ saltScore: number; isActualScore: boolean; }
             </div>
             {
                 !isActualScore && (
-                    <div className="w-full px-[120px]">
+                    <div className="w-full px-[70px]">
                         <Image
                             src='/images/arrow-guess.png'
-                            width={50}
-                            height={70}
+                            width={30}
+                            height={50}
                             alt="arrow"
                             className="relative"
                             style={{ left: (saltScore - 4) + '%' }} />

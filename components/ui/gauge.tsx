@@ -14,14 +14,9 @@ const Gauge: React.FC<{ path: string; }> = ({ path }) => {
     const correctSaltScore = useAppSelector(state => state.guessReducer.correctSaltScore);
     const currentPatient = useAppSelector(state => state.guessReducer.patient);
 
-    function gaugeHandler(event: any) {
-        setSaltScore(event.target.value);
-    }
-
     function submitGuessHandler() {
-        if (isGuessEstimated) {
-            dispatch(guessActions.resetGuessing());
-        } else {
+        const updatedPatient = localStorage.getItem('current_patient');
+        if (!isGuessEstimated)  {
             const key = `patient${currentPatient}_${path.includes('baseline') ? 'baseline' : '24week'}`;
             const points = 100 - Math.abs(correctSaltScore - saltScore);
             localStorage.setItem(key, `${points}`);
@@ -32,31 +27,34 @@ const Gauge: React.FC<{ path: string; }> = ({ path }) => {
                 })
             )
         }
+        if (updatedPatient) {
+            dispatch(guessActions.persistPatient(+updatedPatient));
+        }
     }
 
     return (
-        <>
+        <div className="h-full flex flex-col justify-between py-10">
             <div>
                 <GuessNotification saltScore={saltScore} isActualScore={false} />
                 <div className="relative">
                     {
                         isGuessEstimated && (
-                            <div className="absolute z-20 flex items-center w-full h-full pl-[128px] pr-[148px]">
+                            <div className="absolute z-20 flex items-center w-full h-full pl-[73px] pr-[83px]">
                                 <div
-                                    className="relative text-5xl rounded-full w-6 h-6 bg-[#BDD28E] border-4 border-solid border-white"
-                                    style={{ boxShadow: '0px 0px 0px 5px #BDD28E', left: correctSaltScore + '%' }} />
+                                    className="relative text-5xl rounded-full w-[0.9rem] h-[0.9rem] bg-[#BDD28E] border-2 border-solid border-white"
+                                    style={{ boxShadow: '0px 0px 0px 2.5px #BDD28E', left: correctSaltScore + '%' }} />
                             </div>
                         )
                     }
-                    <div className="absolute z-10 w-full h-full flex items-center justify-center px-[128px] pb-4">
+                    <div className="absolute z-10 w-full h-full flex items-center justify-center px-[74px] pb-4">
                         <input
                             type="range"
                             name="gaugeRange"
                             min="0"
                             max="100"
                             value={saltScore}
-                            className="w-full"
-                            onInput={gaugeHandler} />
+                            className="w-full h-full"
+                            onInput={(event: any) => { setSaltScore(event.target.value); }} />
                     </div>
                     <Image src='/images/degrees-line.png' width={938} height={150} alt="Gauge" />
                 </div>
@@ -86,7 +84,7 @@ const Gauge: React.FC<{ path: string; }> = ({ path }) => {
                     }
                 </CustomButton>
             </div>
-        </>
+        </div>
     )
 }
 
