@@ -12,6 +12,7 @@ import { guessActions } from "@/store/guess-slice";
 const PatientSummary: React.FC = () => {
     const dispatch = useAppDispatch();
     const currentPatient = useAppSelector(state => state.guessReducer.patient);
+    const score = useAppSelector(state => state.guessReducer.points);
     useEffect(() => {
         const updatedPatient = localStorage.getItem('current_patient');
         if (updatedPatient)
@@ -20,9 +21,28 @@ const PatientSummary: React.FC = () => {
             localStorage.setItem('current_patient', '1');
     }, []);
 
-    function nextPatientHandler() {
+    async function nextPatientHandler() {
         localStorage.setItem('current_patient', `${currentPatient < 3 ? currentPatient + 1 : 3}`);
         dispatch(guessActions.persistPatient(currentPatient < 3 ? currentPatient + 1 : 3));
+        const name = localStorage.getItem('username_salt') || '';
+        if (currentPatient === 3) {
+            const formDataBody = new FormData();
+            formDataBody.append('name', name);
+            formDataBody.append('score', `${score}`);
+            const request = await fetch(
+                'http://34.253.79.79:8013/api/leaderboard',
+                {
+                    method: 'POST',
+                    body: formDataBody,
+                    headers: {
+                        Accept: 'application/json',
+                        api_key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFkaGFtX0JMVUUiLCJpYXQiOjE1MTYyMzkwMjJ9.mNoXtQAe1znwvy0z9c0g_RFMAvtJAg7xgaUDpDVQrjc'
+                    }
+                });
+            console.log('request : ', request);
+            const response = await request.json();
+            console.log('response : ', response);
+        }
     }
 
     return (

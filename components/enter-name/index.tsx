@@ -23,6 +23,7 @@ const EnterName: React.FC = () => {
     };
 
     function onSubmitHandler() {
+        localStorage.clear();
         localStorage.setItem('username_salt', username);
         openFullscreen();
     }

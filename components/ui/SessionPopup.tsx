@@ -14,13 +14,20 @@ const SessionPopup: React.FC<{ onClosePopup: () => void; }> = ({ onClosePopup })
         const interval = setInterval(() => {
             if (seconds > 0)
                 setSeconds(prevState => prevState - 1);
-            else 
+            else {
+                clearInterval(interval);
                 onClosePopup();
+            }
         }, 1000);
         return () => {
             clearInterval(interval);
         }
     }, [seconds]);
+
+    function startOverHandler() {
+        router.push('/');
+        localStorage.clear();
+    }
 
     return (
         <div className="pt-4 px-10">
@@ -45,7 +52,7 @@ const SessionPopup: React.FC<{ onClosePopup: () => void; }> = ({ onClosePopup })
                         isActionBtn={true}
                         isDisabled={false}
                         typeBtn='submit'
-                        onSubmitHandler={() => { router.push('/') }}>
+                        onSubmitHandler={ startOverHandler }>
                         START OVER
                     </CustomButton>
                 </div>
