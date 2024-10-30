@@ -1,6 +1,30 @@
-import CustomButton from "../ui/button"
+import { useEffect } from 'react';
+
+import CustomButton from "../ui/button";
+
+interface FullscreenHTMLElement extends HTMLElement {
+    webkitRequestFullscreen?: () => Promise<void>;
+    msRequestFullscreen?: () => Promise<void>;
+}
 
 const Footer: React.FC = () => {
+    const openFullscreen = () => {
+        const element = document.documentElement as FullscreenHTMLElement;
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.webkitRequestFullscreen) { // Safari
+            element.webkitRequestFullscreen();
+        } else if (element.msRequestFullscreen) { // Older versions of Internet Explorer/Edge
+            element.msRequestFullscreen();
+        }
+    };
+
+    useEffect(() => {
+        // Automatically open fullscreen if allowed (may not work on page load in most browsers)
+        openFullscreen();
+    }, []);
+
+
     return (
         <div className="flex justify-between items-end w-full text-[#C0E0E8] text-xs">
             <div className="w-5/12">
@@ -12,8 +36,9 @@ const Footer: React.FC = () => {
             <CustomButton
                 path="/stage/enter-name"
                 isActionBtn={true}
-                typeBtn="button"
-                isDisabled={false}>TAP TO BEGIN</CustomButton>
+                typeBtn="submit"
+                isDisabled={false}
+                onSubmitHandler={openFullscreen}>TAP TO BEGIN</CustomButton>
         </div>
     )
 }
