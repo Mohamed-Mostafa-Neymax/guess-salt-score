@@ -33,7 +33,7 @@ const Gauge: React.FC<{ path: string; }> = ({ path }) => {
     }
 
     return (
-        <div className="h-full flex flex-col justify-between pt-10">
+        <div className="h-full flex flex-col justify-between py-10">
             <div>
                 <GuessNotification saltScore={saltScore} isActualScore={false} />
                 <div className="relative">
