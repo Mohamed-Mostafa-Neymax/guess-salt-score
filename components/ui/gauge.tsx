@@ -53,7 +53,7 @@ const Gauge: React.FC<{ path: string; }> = ({ path }) => {
                             min="0"
                             max="100"
                             value={saltScore}
-                            className="w-full"
+                            className="w-full h-full"
                             onInput={(event: any) => { setSaltScore(event.target.value); }} />
                     </div>
                     <Image src='/images/degrees-line.png' width={938} height={150} alt="Gauge" />
