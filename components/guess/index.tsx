@@ -66,14 +66,20 @@ const Guess: React.FC = () => {
                     </div>
                 </div>
             </div>
-            <div className='w-full flex flex-col gap-16'>
+            <div>
                 {
                     isGuessEstimated && correctSaltScore != saltScore ? (
-                        <div className='flex justify-center'><Image src='/images/good-guess.png' width={300} height={150} alt="Congrats for the earned points" /></div>
+                        <div className='flex justify-center h-10'>
+                            <div><Image src='/images/good-guess.png' width={300} height={150} alt="Congrats for the earned points" /></div>
+                        </div>
                     ) : isGuessEstimated && correctSaltScore == saltScore ? (
-                        <div className='flex justify-center'><Image src='/images/very-good-guess.png' width={400} height={200} alt="Congrats for the earned points" /></div>
+                        <div className='flex justify-center h-10'>
+                            <div><Image src='/images/very-good-guess.png' width={400} height={200} alt="Congrats for the earned points" /></div>
+                        </div>
                     ) : (
-                        <h2 className="text-2xl MontserratBold text-[#018167] text-center">Select your guess for {guessMode === 'baseline' ? 'Baseline' : 'Week 24'}</h2>
+                        <h2 className="text-2xl MontserratBold text-[#018167] text-center h-10">
+                            <span>Select your guess for {guessMode === 'baseline' ? 'Baseline' : 'Week 24'}</span>
+                        </h2>
                     )
                 }
                 <Gauge path={pathname} />
