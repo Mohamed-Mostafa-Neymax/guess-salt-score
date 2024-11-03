@@ -25,8 +25,13 @@ const SessionPopup: React.FC<{ onClosePopup: () => void; }> = ({ onClosePopup })
     }, [seconds]);
 
     function startOverHandler() {
-        router.push('/');
+        const userID = localStorage.getItem('user_id');
         localStorage.clear();
+        if (userID) {
+            localStorage.setItem('user_id', userID);
+            localStorage.setItem('current_patient', '1');
+            router.push('/stage/overview');
+        }
     }
 
     return (
@@ -52,7 +57,7 @@ const SessionPopup: React.FC<{ onClosePopup: () => void; }> = ({ onClosePopup })
                         isActionBtn={true}
                         isDisabled={false}
                         typeBtn='submit'
-                        onSubmitHandler={ startOverHandler }>
+                        onSubmitHandler={startOverHandler}>
                         START OVER
                     </CustomButton>
                 </div>

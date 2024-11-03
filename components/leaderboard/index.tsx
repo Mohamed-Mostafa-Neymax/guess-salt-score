@@ -16,7 +16,7 @@ const Leaderboard: React.FC = () => {
 
     async function getLeaderboard() {
         const request = await fetch(
-            'http://34.253.79.79:8013/api/leaderboard',
+            'https://cms-saltscore.blueholding.co.uk/api/leaderboard',
             {
                 method: 'GET',
                 headers: {
@@ -24,9 +24,7 @@ const Leaderboard: React.FC = () => {
                     api_key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFkaGFtX0JMVUUiLCJpYXQiOjE1MTYyMzkwMjJ9.mNoXtQAe1znwvy0z9c0g_RFMAvtJAg7xgaUDpDVQrjc'
                 }
             });
-        console.log('request : ', request);
         const response = await request.json();
-        console.log('response : ', response);
         setLeaderboard(_prevState => response);
     }
 

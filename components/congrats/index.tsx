@@ -17,12 +17,6 @@ const Congrats: React.FC = () => {
         dispatch(guessActions.setPoints(questions > 0 ? Math.ceil(allPoints / questions) : 0));
     }, []);
 
-    async function onSubmitHandler() {
-        console.log(points);
-        // const response = await fetch('/api/leaderboard');
-        // const data = await response.json();
-    }
-
     return (
         <div className="flex flex-col items-center justify-center h-full gap-8 relative fadePage">
             <div className="mb-4">
@@ -35,8 +29,7 @@ const Congrats: React.FC = () => {
                 path='/stage/summary'
                 isActionBtn={false}
                 isDisabled={false}
-                typeBtn='submit'
-                onSubmitHandler={onSubmitHandler}>
+                typeBtn='button'>
                 DISCOVER MORE
             </CustomButton>
             <div className="absolute bottom-0 w-full flex justify-center items-center gap-5">

@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import CustomButton from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 interface FullscreenHTMLElement extends HTMLElement {
     webkitRequestFullscreen?: () => Promise<void>;
@@ -10,7 +11,14 @@ interface FullscreenHTMLElement extends HTMLElement {
 }
 
 const EnterName: React.FC = () => {
+    const router = useRouter();
     const [username, setUsername] = useState<string>('');
+    useEffect(() => {
+        const userID = localStorage.getItem('user_id');
+        if (userID)
+            router.push('/stage/overview');
+    }, [])
+
     const openFullscreen = () => {
         const element = document.documentElement as FullscreenHTMLElement;
         if (element.requestFullscreen) {
@@ -22,10 +30,25 @@ const EnterName: React.FC = () => {
         }
     };
 
-    function onSubmitHandler() {
-        localStorage.clear();
-        localStorage.setItem('username_salt', username);
-        openFullscreen();
+    async function onSubmitHandler() {
+        const formData = new FormData();
+        formData.append('name', username);
+        const request = await fetch(
+            'https://cms-saltscore.blueholding.co.uk/api/leaderboard',
+            {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    Accept: 'application/json',
+                    api_key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFkaGFtX0JMVUUiLCJpYXQiOjE1MTYyMzkwMjJ9.mNoXtQAe1znwvy0z9c0g_RFMAvtJAg7xgaUDpDVQrjc'
+                }
+            });
+        const response = await request.json();
+        if (request.ok) {
+            localStorage.setItem('user_id', response.id);
+            router.push('/stage/overview');
+            openFullscreen();
+        }
     }
 
     return (
@@ -42,7 +65,7 @@ const EnterName: React.FC = () => {
             </div>
             <div className="flex justify-center">
                 <CustomButton
-                    path="/stage/overview"
+                    path="/stage/enter-name"
                     isActionBtn={false}
                     isDisabled={username.length === 0}
                     typeBtn='submit'

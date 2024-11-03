@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 
 import Overview from "../overview";
 import References from "../references";
@@ -12,7 +11,6 @@ import SessionPopup from "./SessionPopup";
 
 const SideActions: React.FC<{ isGuessingStage: boolean; }> = ({ isGuessingStage }) => {
     const [popup, setPopup] = useState<{ isOpen: boolean; content: string }>({ isOpen: false, content: '' });
-    const router = useRouter();
     const dispatch = useAppDispatch();
     const isGuessEstimated = useAppSelector(state => state.guessReducer.isGuessEstimated);
     const points = useAppSelector(state => state.guessReducer.points);

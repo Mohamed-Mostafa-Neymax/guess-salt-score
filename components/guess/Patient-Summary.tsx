@@ -22,26 +22,23 @@ const PatientSummary: React.FC = () => {
     }, []);
 
     async function nextPatientHandler() {
+        const formData = new FormData();
+        formData.append('score', `${score}`);
         localStorage.setItem('current_patient', `${currentPatient < 3 ? currentPatient + 1 : 3}`);
         dispatch(guessActions.persistPatient(currentPatient < 3 ? currentPatient + 1 : 3));
-        const name = localStorage.getItem('username_salt') || '';
+        const userID = localStorage.getItem('user_id') || '';
         if (currentPatient === 3) {
-            const formDataBody = new FormData();
-            formDataBody.append('name', name);
-            formDataBody.append('score', `${score}`);
             const request = await fetch(
-                'http://34.253.79.79:8013/api/leaderboard',
+                `https://cms-saltscore.blueholding.co.uk/api/update-leaderboard/${userID}`,
                 {
                     method: 'POST',
-                    body: formDataBody,
+                    body: formData,
                     headers: {
                         Accept: 'application/json',
                         api_key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFkaGFtX0JMVUUiLCJpYXQiOjE1MTYyMzkwMjJ9.mNoXtQAe1znwvy0z9c0g_RFMAvtJAg7xgaUDpDVQrjc'
                     }
                 });
-            console.log('request : ', request);
             const response = await request.json();
-            console.log('response : ', response);
         }
     }
 
