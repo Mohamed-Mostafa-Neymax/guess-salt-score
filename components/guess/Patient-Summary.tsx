@@ -22,24 +22,8 @@ const PatientSummary: React.FC = () => {
     }, []);
 
     async function nextPatientHandler() {
-        const formData = new FormData();
-        formData.append('score', `${score}`);
         localStorage.setItem('current_patient', `${currentPatient < 3 ? currentPatient + 1 : 3}`);
         dispatch(guessActions.persistPatient(currentPatient < 3 ? currentPatient + 1 : 3));
-        const userID = localStorage.getItem('user_id') || '';
-        if (currentPatient === 3) {
-            const request = await fetch(
-                `https://cms-saltscore.blueholding.co.uk/api/update-leaderboard/${userID}`,
-                {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        Accept: 'application/json',
-                        api_key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFkaGFtX0JMVUUiLCJpYXQiOjE1MTYyMzkwMjJ9.mNoXtQAe1znwvy0z9c0g_RFMAvtJAg7xgaUDpDVQrjc'
-                    }
-                });
-            const response = await request.json();
-        }
     }
 
     return (

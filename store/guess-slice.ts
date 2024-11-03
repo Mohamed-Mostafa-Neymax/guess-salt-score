@@ -15,18 +15,18 @@ const guessSlice = createSlice({
   initialState,
   reducers: {
     onGuessScore(state, action) {
+      state.isGuessEstimated = true;
       state.saltScore = action.payload.saltScore;
       state.scalpHairCoverage = action.payload.scalpHairCoverage;
-      state.isGuessEstimated = true;
     },
     setCorrectScore(state, action) {
       state.correctSaltScore = action.payload.correctSaltScore;
       state.correctScalpHairCoverage = action.payload.correctScalpHairCoverage;
     },
     resetGuessing(state) {
+      state.isGuessEstimated = false;
       state.saltScore = 0;
       state.scalpHairCoverage = 100;
-      state.isGuessEstimated = false;
     },
     persistPatient(state, action) {
       state.patient = action.payload;
@@ -39,20 +39,3 @@ const guessSlice = createSlice({
 
 export const guessActions = guessSlice.actions;
 export const guessReducer = guessSlice.reducer;
-
-/* NOTES
-
-            Baseline                                                                       24 Week
-Patien 1    submition (put calculation points in locaStorage ['patient1_baseline'])        submition (put calculation points in locaStorage ['patient1_24week'])
-Patien 2    submition (put calculation points in locaStorage ['patient2_baseline'])        submition (put calculation points in locaStorage ['patient2_24week']) 
-Patien 3    submition (put calculation points in locaStorage ['patient3_baseline'])        submition (put calculation points in locaStorage ['patient3_24week'])
-
-localStorage Keys
-  patient
-  patient1_baseline
-  patient1_24week
-  patient2_baseline
-  patient2_24week
-  patient3_baseline
-  patient3_24week
-*/

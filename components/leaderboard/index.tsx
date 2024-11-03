@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 const Leaderboard: React.FC = () => {
     const [leaderboard, setLeaderboard] = useState<{ id: number; name: string; score: number; created_at: string; updated_at: string; }[]>([]);
+    const [loadingUsers, setLoadingUsers] = useState<boolean>(false);
 
     useEffect(() => {
         getLeaderboard();
@@ -15,6 +16,7 @@ const Leaderboard: React.FC = () => {
     }, [])
 
     async function getLeaderboard() {
+        setLoadingUsers(prevState => true);
         const request = await fetch(
             'https://cms-saltscore.blueholding.co.uk/api/leaderboard',
             {
@@ -26,6 +28,7 @@ const Leaderboard: React.FC = () => {
             });
         const response = await request.json();
         setLeaderboard(_prevState => response);
+        setTimeout(() => { setLoadingUsers(prevState => false); }, 2000);
     }
 
     return (
@@ -37,7 +40,7 @@ const Leaderboard: React.FC = () => {
                 <ul className="w-[500px] relative">
                     {
                         leaderboard.map((user, index) => (
-                            <li key={user.id} className={`pl-24 mb-3 flex justify-between ${index < 3 ? 'bg-[#B7D57D]' : 'bg-[#CCE2A1]'}`}>
+                            <li key={user.id} className={`pl-24 mb-3 flex justify-between ${loadingUsers ? 'animate-pulse' : ''} ${index < 3 ? 'bg-[#B7D57D]' : 'bg-[#CCE2A1]'}`}>
                                 <div className="flex items-center w-full text-2xl MontserratBold text-[#013E53]">
                                     {
                                         index < 3 ? (

@@ -6,6 +6,7 @@ import { useState } from "react";
 import GuessNotification from "./guess-notification";
 import CustomButton from "./button";
 import { guessActions } from "@/store/guess-slice";
+import { calculatePoints } from "@/model/calculate-points";
 
 const Gauge: React.FC<{ path: string; }> = ({ path }) => {
     const dispatch = useAppDispatch();
@@ -16,7 +17,7 @@ const Gauge: React.FC<{ path: string; }> = ({ path }) => {
 
     function submitGuessHandler() {
         const updatedPatient = localStorage.getItem('current_patient');
-        if (!isGuessEstimated)  {
+        if (!isGuessEstimated) {
             const key = `patient${currentPatient}_${path.includes('baseline') ? 'baseline' : '24week'}`;
             const points = 100 - Math.abs(correctSaltScore - saltScore);
             localStorage.setItem(key, `${points}`);
@@ -25,11 +26,31 @@ const Gauge: React.FC<{ path: string; }> = ({ path }) => {
                     saltScore,
                     scalpHairCoverage: 100 - saltScore
                 })
-            )
+            );
+            postPoints();
         }
         if (updatedPatient) {
             dispatch(guessActions.persistPatient(+updatedPatient));
         }
+    }
+
+    async function postPoints() {
+        const userID = localStorage.getItem('user_id') || '';
+        const formData = new FormData();
+        let allPoints = calculatePoints().allPoints;
+        let questions = calculatePoints().questions;
+        formData.append('score', `${Math.ceil(allPoints / questions)}`);
+        const request = await fetch(
+            `https://cms-saltscore.blueholding.co.uk/api/update-leaderboard/${userID}`,
+            {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    Accept: 'application/json',
+                    api_key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFkaGFtX0JMVUUiLCJpYXQiOjE1MTYyMzkwMjJ9.mNoXtQAe1znwvy0z9c0g_RFMAvtJAg7xgaUDpDVQrjc'
+                }
+            });
+        const response = await request.json();
     }
 
     return (
