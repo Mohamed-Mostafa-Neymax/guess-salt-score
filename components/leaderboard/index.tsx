@@ -33,7 +33,7 @@ const Leaderboard: React.FC = () => {
 
     return (
         <div className="h-full flex flex-col justify-between items-center fadePage">
-            <div className="overflow-scroll px-24">
+            <div className="overflow-y-auto px-24">
                 <div className="mb-4 flex justify-center">
                     <Image src='/images/top-scores.png' width={350} height={100} alt="SALT Top Scores" />
                 </div>

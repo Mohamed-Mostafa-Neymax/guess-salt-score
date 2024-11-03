@@ -35,6 +35,12 @@ const Gauge: React.FC<{ path: string; }> = ({ path }) => {
     }
 
     async function postPoints() {
+        dispatch(
+            guessActions.onGuessScore({
+                saltScore,
+                scalpHairCoverage: 100 - saltScore
+            })
+        );
         const userID = localStorage.getItem('user_id') || '';
         const formData = new FormData();
         let allPoints = calculatePoints().allPoints;
@@ -51,6 +57,12 @@ const Gauge: React.FC<{ path: string; }> = ({ path }) => {
                 }
             });
         const response = await request.json();
+        dispatch(
+            guessActions.onGuessScore({
+                saltScore,
+                scalpHairCoverage: 100 - saltScore
+            })
+        );
     }
 
     return (
