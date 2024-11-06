@@ -52,7 +52,7 @@ const PatientSummary: React.FC = () => {
                     </div>
                 </div>
                 <p className='text-xs mt-1.5'>
-                    Real patient images from the LITFULO pivotal clinical study. All patients shown are ≥12 years of age. Patient images are used with permission.⁴
+                    Real patient images from the LITFULO pivotal clinical study. All patients shown are ≥12 years of age. Patient images are used with permission.⁴<sup>4</sup>
                 </p>
                 <p className='text-xs mt-1.5'>
                     Patient images demonstrate an example of a patient who met the clinical trial primary endpoint of SALT ≤10 at Week 24. Individual results may vary.³
