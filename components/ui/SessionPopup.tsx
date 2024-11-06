@@ -4,11 +4,14 @@ import { usePathname } from 'next/navigation';
 import CustomButton from './button';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useAppDispatch } from '@/store';
+import { guessActions } from '@/store/guess-slice';
 
 const SessionPopup: React.FC<{ onClosePopup: () => void; }> = ({ onClosePopup }) => {
     const pathname = usePathname();
     const router = useRouter();
     const [seconds, setSeconds] = useState<number>(30);
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -25,13 +28,10 @@ const SessionPopup: React.FC<{ onClosePopup: () => void; }> = ({ onClosePopup })
     }, [seconds]);
 
     function startOverHandler() {
-        const userID = localStorage.getItem('user_id');
         localStorage.clear();
-        if (userID) {
-            localStorage.setItem('user_id', userID);
-            localStorage.setItem('current_patient', '1');
-            router.push('/stage/overview');
-        }
+        dispatch(guessActions.resetGuessing());
+        localStorage.setItem('current_patient', '1');
+        router.push('/stage/enter-name');
     }
 
     return (

@@ -14,11 +14,6 @@ const EnterName: React.FC = () => {
     const router = useRouter();
     const [username, setUsername] = useState<string>('');
     const [inputMessage, setInputMessage] = useState<string>('');
-    useEffect(() => {
-        const userID = localStorage.getItem('user_id');
-        if (userID)
-            router.push('/stage/overview');
-    }, [])
 
     const openFullscreen = () => {
         const element = document.documentElement as FullscreenHTMLElement;
@@ -52,6 +47,7 @@ const EnterName: React.FC = () => {
             });
         const response = await request.json();
         if (request.ok) {
+            localStorage.clear();
             localStorage.setItem('user_id', response.id);
             router.push('/stage/overview');
             openFullscreen();
