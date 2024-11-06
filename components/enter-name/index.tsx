@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 
 import CustomButton from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import { useAppDispatch } from "@/store";
+import { guessActions } from "@/store/guess-slice";
 
 interface FullscreenHTMLElement extends HTMLElement {
     webkitRequestFullscreen?: () => Promise<void>;
@@ -14,6 +16,7 @@ const EnterName: React.FC = () => {
     const router = useRouter();
     const [username, setUsername] = useState<string>('');
     const [inputMessage, setInputMessage] = useState<string>('');
+    const dispatch = useAppDispatch();
 
     const openFullscreen = () => {
         const element = document.documentElement as FullscreenHTMLElement;
@@ -49,6 +52,7 @@ const EnterName: React.FC = () => {
         if (request.ok) {
             localStorage.clear();
             localStorage.setItem('user_id', response.id);
+            dispatch(guessActions.resetGuessing());
             router.push('/stage/overview');
             openFullscreen();
         } else {
