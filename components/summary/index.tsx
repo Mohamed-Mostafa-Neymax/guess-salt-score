@@ -1,6 +1,11 @@
+'use client';
+
+import { useRouter } from "next/navigation";
 import CustomButton from "../ui/button";
 
 const Summary: React.FC = () => {
+    const router = useRouter();
+
     return (
         <div className="flex flex-col items-center justify-between h-full fadePage">
             <div className="h-full flex flex-col justify-center px-20">
@@ -11,10 +16,9 @@ const Summary: React.FC = () => {
                 <p className="text-xl font-semibold text-left">See additional safety information in the full Summary of Product Characteristics.</p>
             </div>
             <CustomButton
-                path='/stage/thank-you'
                 isActionBtn={false}
                 isDisabled={false}
-                typeBtn='button'>
+                onSubmitHandler={() => router.push('/stage/thank-you')}>
                 NEXT
             </CustomButton>
         </div>

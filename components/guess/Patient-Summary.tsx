@@ -8,11 +8,12 @@ import Slider from "../ui/slider";
 import CustomButton from "../ui/button";
 import { useEffect } from "react";
 import { guessActions } from "@/store/guess-slice";
+import { useRouter } from "next/navigation";
 
 const PatientSummary: React.FC = () => {
+    const router = useRouter();
     const dispatch = useAppDispatch();
     const currentPatient = useAppSelector(state => state.guessReducer.patient);
-    const score = useAppSelector(state => state.guessReducer.points);
     useEffect(() => {
         const updatedPatient = localStorage.getItem('current_patient');
         if (updatedPatient)
@@ -22,6 +23,10 @@ const PatientSummary: React.FC = () => {
     }, []);
 
     async function nextPatientHandler() {
+        if (currentPatient === 3)
+            router.push('/stage/congrats');
+        else
+            router.push('/stage/guess/baseline');
         localStorage.setItem('current_patient', `${currentPatient < 3 ? currentPatient + 1 : 3}`);
         dispatch(guessActions.persistPatient(currentPatient < 3 ? currentPatient + 1 : 3));
     }
@@ -79,10 +84,8 @@ const PatientSummary: React.FC = () => {
                 <Image src='/images/patient-summary.png' width={620} height={300} alt="Patient Summary Image" />
                 <div className="flex justify-center">
                     <CustomButton
-                        path={currentPatient === 3 ? '/stage/congrats' : '/stage/guess/baseline'}
                         isActionBtn={false}
                         isDisabled={false}
-                        typeBtn='submit'
                         onSubmitHandler={nextPatientHandler}>
                         {currentPatient === 3 ? 'SEE YOUR RESULTS' : 'NEXT PATIENT'}
                     </CustomButton>

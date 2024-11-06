@@ -1,6 +1,11 @@
+'use client';
+
+import { useRouter } from "next/navigation";
+
 import CustomButton from "../ui/button";
 
 const Footer: React.FC = () => {
+    const router = useRouter();
 
     return (
         <div className="flex justify-between items-end w-full text-[#C0E0E8] text-xs">
@@ -11,10 +16,9 @@ const Footer: React.FC = () => {
                 </p>
             </div>
             <CustomButton
-                path="/stage/enter-name"
                 isActionBtn={true}
-                typeBtn="button"
-                isDisabled={false}>TAP TO BEGIN</CustomButton>
+                isDisabled={false}
+                onSubmitHandler={() => { router.push('/stage/enter-name') }}>TAP TO BEGIN</CustomButton>
         </div>
     )
 }

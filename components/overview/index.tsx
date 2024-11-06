@@ -1,7 +1,13 @@
+'use client';
+
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+
 import CustomButton from "../ui/button";
 
 const Overview: React.FC<{ isPopup: boolean; onClosePopup?: () => void; }> = ({ isPopup, onClosePopup }) => {
+    const router = useRouter();
+    
     return (
         <div className="fadePage">
             <div className="pt-9 pl-28 mb-7">
@@ -44,10 +50,9 @@ const Overview: React.FC<{ isPopup: boolean; onClosePopup?: () => void; }> = ({ 
                             className="text-[#04303E] text-xl MontserratBold underline">CLOSE</button>
                     ) : (
                         <CustomButton
-                            path="/stage/instructions"
                             isActionBtn={false}
                             isDisabled={false}
-                            typeBtn='button'>SEE THE INSTRUCTIONS</CustomButton>
+                            onSubmitHandler={() => router.push('/stage/instructions')}>SEE THE INSTRUCTIONS</CustomButton>
                     )
                 }
                 

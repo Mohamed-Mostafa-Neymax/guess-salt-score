@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import CustomButton from "@/components/ui/button";
 import { useRouter } from "next/navigation";
@@ -88,10 +88,8 @@ const EnterName: React.FC = () => {
             </div>
             <div className="flex justify-center">
                 <CustomButton
-                    path="/stage/enter-name"
                     isActionBtn={false}
                     isDisabled={username.length === 0}
-                    typeBtn='submit'
                     onSubmitHandler={onSubmitHandler}>LEARN ABOUT SALT</CustomButton>
             </div>
         </div>

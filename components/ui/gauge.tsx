@@ -7,8 +7,10 @@ import GuessNotification from "./guess-notification";
 import CustomButton from "./button";
 import { guessActions } from "@/store/guess-slice";
 import { calculatePoints } from "@/model/calculate-points";
+import { useRouter } from "next/navigation";
 
 const Gauge: React.FC<{ path: string; }> = ({ path }) => {
+    const router = useRouter();
     const dispatch = useAppDispatch();
     const isGuessEstimated = useAppSelector(state => state.guessReducer.isGuessEstimated);
     const [saltScore, setSaltScore] = useState<number>(0);
@@ -16,6 +18,10 @@ const Gauge: React.FC<{ path: string; }> = ({ path }) => {
     const currentPatient = useAppSelector(state => state.guessReducer.patient);
 
     function submitGuessHandler() {
+        if (isGuessEstimated && path.includes('week24'))
+            router.push('/stage/guess/patient-summary');
+        else if (isGuessEstimated && path.includes('baseline'))
+            router.push('/stage/guess/week24');
         const updatedPatient = localStorage.getItem('current_patient');
         if (!isGuessEstimated) {
             const key = `patient${currentPatient}_${path.includes('baseline') ? 'baseline' : '24week'}`;
@@ -101,14 +107,8 @@ const Gauge: React.FC<{ path: string; }> = ({ path }) => {
             </div>
             <div className="flex justify-center">
                 <CustomButton
-                    path={
-                        isGuessEstimated && path.includes('week24') ? '/stage/guess/patient-summary' :
-                            isGuessEstimated && path.includes('baseline') ? '/stage/guess/week24' :
-                                path
-                    }
                     isActionBtn={isGuessEstimated ? false : true}
                     isDisabled={false}
-                    typeBtn='submit'
                     onSubmitHandler={submitGuessHandler}>
                     {
                         isGuessEstimated && path.includes('week24') ? 'SEE PATIENT SUMMARY' :

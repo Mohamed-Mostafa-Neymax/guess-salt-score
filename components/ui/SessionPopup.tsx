@@ -43,20 +43,16 @@ const SessionPopup: React.FC<{ onClosePopup: () => void; }> = ({ onClosePopup })
             <div className='flex justify-evenly'>
                 <div className="w-fit">
                     <CustomButton
-                        path={pathname}
                         isActionBtn={true}
                         isDisabled={false}
-                        typeBtn='submit'
                         onSubmitHandler={() => { onClosePopup() }}>
                         CONTINUE
                     </CustomButton>
                 </div>
                 <div className="w-fit">
                     <CustomButton
-                        path='/stage/enter-name'
                         isActionBtn={true}
                         isDisabled={false}
-                        typeBtn='submit'
                         onSubmitHandler={startOverHandler}>
                         START OVER
                     </CustomButton>

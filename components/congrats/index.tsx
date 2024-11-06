@@ -7,8 +7,10 @@ import CustomButton from "@/components/ui/button";
 import { useAppDispatch, useAppSelector } from "@/store";
 import { calculatePoints } from "@/model/calculate-points";
 import { guessActions } from "@/store/guess-slice";
+import { useRouter } from "next/navigation";
 
 const Congrats: React.FC = () => {
+    const router = useRouter();
     const dispatch = useAppDispatch()
     const points = useAppSelector(state => state.guessReducer.points);
     useEffect(() => {
@@ -26,10 +28,9 @@ const Congrats: React.FC = () => {
             <p className="text-2xl MontserratBold mb-4">and secured a spot on the leaderboard!</p>
             <p className="text-3xl font-bold">Thank you for participating!</p>
             <CustomButton
-                path='/stage/summary'
                 isActionBtn={false}
                 isDisabled={false}
-                typeBtn='button'>
+                onSubmitHandler={() => {router.push('/stage/summary')}}>
                 DISCOVER MORE
             </CustomButton>
             <div className="absolute bottom-0 w-full flex justify-center items-center gap-5">

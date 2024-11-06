@@ -5,8 +5,10 @@ import { useState } from "react";
 
 import CustomButton from "../ui/button";
 import FACHKREISE from "./FACHKREISE";
+import { useRouter } from "next/navigation";
 
 const ThankYou: React.FC = () => {
+    const router = useRouter();
     const [isPopupActive, setIsPopupActive] = useState<boolean>(false);
 
     return (
@@ -39,10 +41,9 @@ const ThankYou: React.FC = () => {
                         <h2 className="text-xl MontserratBold text-[#018167] mb-10">Thank you for interacting with</h2>
                         <Image src='/images/logo.png' width={220} height={220} alt="Salt home logo" className="mb-28" />
                         <CustomButton
-                            path='/stage/leaderboard'
                             isActionBtn={false}
                             isDisabled={false}
-                            typeBtn='button'>
+                            onSubmitHandler={() => {router.push('/stage/leaderboard')}}>
                             Finish
                         </CustomButton>
                     </div>

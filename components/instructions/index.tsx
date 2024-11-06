@@ -1,7 +1,13 @@
+'use client';
+
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+
 import CustomButton from "../ui/button";
 
 const Instructions: React.FC = () => {
+    const router = useRouter();
+
     return (
         <div className="flex gap-10 fadePage">
             <div className="max-w-[720px] font-bold">
@@ -48,10 +54,9 @@ const Instructions: React.FC = () => {
                 </ul>
                 <div className="flex justify-center">
                     <CustomButton
-                        path="/stage/guess/baseline"
                         isActionBtn={false}
                         isDisabled={false}
-                        typeBtn='button'>START NOW</CustomButton>
+                        onSubmitHandler={() => router.push('/stage/guess/baseline')}>START NOW</CustomButton>
                 </div>
             </div>
         </div>

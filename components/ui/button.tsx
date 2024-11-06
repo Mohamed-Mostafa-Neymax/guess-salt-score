@@ -1,20 +1,18 @@
 import Image from "next/image";
-import Link from "next/link";
 
 const CustomButton: React.FC<{
     children: React.ReactNode;
-    path: string;
     isActionBtn: boolean;
     isDisabled: boolean;
-    typeBtn: string;
     onSubmitHandler?: () => void;
-}> = ({ children, path, isActionBtn, typeBtn, isDisabled, onSubmitHandler }) => {
+}> = ({ children, isActionBtn, isDisabled, onSubmitHandler }) => {
     return (
-        <Link
-            href={isDisabled ? '/stage/enter-name' : path}
+        // href={isDisabled ? '/stage/enter-name' : path}
+        <button
+            type="button"
             className="flex"
-            onClick={typeBtn === 'submit' ? onSubmitHandler : undefined}>
-            <div className={`text-white ${isDisabled ? 'bg-[#9E9E9E]' : isActionBtn ? 'bg-[#EB6B99]' : 'bg-[#E7427A]'} flex items-center justify-between text-md w-fit`}>
+            onClick={onSubmitHandler}>
+            <div className={`text-white ${isDisabled ? 'bg-[#9E9E9E]' : isActionBtn ? 'bg-[#EB6B99]' : 'bg-[#E7427A]'} flex items-center justify-between text-md w-fit h-full`}>
                 {
                     isActionBtn && (
                         <Image
@@ -51,7 +49,7 @@ const CustomButton: React.FC<{
                         </div>
                     )
             }
-        </Link>
+        </button>
     )
 }
 
