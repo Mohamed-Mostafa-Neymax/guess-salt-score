@@ -6,7 +6,7 @@ const SummaryPage: React.FC = () => {
     return (
         <>
             <div className="flex items-center justify-evenly relative z-10 w-full h-full text-center">
-                <SlideWrapper isShownLogo={false}>
+                <SlideWrapper isShownLogo={false} isLitfuloLogo={false}>
                     <Summary />
                 </SlideWrapper>
                 <SideActions isGuessingStage={true} />

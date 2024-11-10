@@ -6,7 +6,7 @@ export default function InstructionsPage() {
     return (
         <>
             <div className="flex items-center justify-evenly relative z-10 w-full h-full">
-                <SlideWrapper isShownLogo={true}>
+                <SlideWrapper isShownLogo={true} isLitfuloLogo={false}>
                     <Instructions />
                 </SlideWrapper>
                 <SideActions isGuessingStage={true} />

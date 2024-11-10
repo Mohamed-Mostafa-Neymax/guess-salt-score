@@ -6,7 +6,7 @@ const ThankYouPage: React.FC = () => {
     return (
         <>
             <div className="flex items-center justify-evenly relative z-10 w-full h-full">
-                <SlideWrapper isShownLogo={false}>
+                <SlideWrapper isShownLogo={false} isLitfuloLogo={false}>
                     <ThankYou />
                 </SlideWrapper>
                 <SideActions isGuessingStage={true} />

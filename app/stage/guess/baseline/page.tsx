@@ -6,7 +6,7 @@ export default function GuessBaselinePage() {
     return (
         <>
             <div className="flex items-center justify-evenly relative z-10 w-full h-full">
-                <SlideWrapper isShownLogo={true}>
+                <SlideWrapper isShownLogo={true} isLitfuloLogo={false}>
                     <Guess />
                 </SlideWrapper>
                 <SideActions isGuessingStage={true} />
