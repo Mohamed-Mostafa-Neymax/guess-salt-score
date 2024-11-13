@@ -24,6 +24,7 @@ const ThankYou: React.FC = () => {
                     </div>
                 )
             }
+            {/* asdhasdhas */}
             <div className="flex justify-between h-full">
                 <div className="h-full flex items-end justify-center">
                     <p className="text-xs absolute left-1 font-semibold">Patient portrayal.</p>
