@@ -25,7 +25,7 @@ const GuessNotification: React.FC<{ saltScore: number; isActualScore: boolean; }
             <div
                 className={`${isActualScore ? 'bg-[#C4DC8D]' : 'bg-[#E6AFA4]'} w-fit p-1 rounded-xl text-center relative z-10`}
                 style={{ left: (saltScore / 2) + '%' }}>
-                <p className="MontserratBold text-sm pb-1">{isActualScore ? 'The ACTUAL SCORE' : 'YOUR GUESS'}</p>
+                <p className="MontserratBold text-sm pb-1">{isActualScore ? 'THE ACTUAL SCORE' : 'YOUR GUESS'}</p>
                 <div className='flex justify-center gap-10 capitalize bg-white rounded-b-xl p-2 font-semibold text-xs'>
                     <div className={`px-5 border-r-4 border-solid ${isActualScore ? 'border-[#C4DC8D]' : 'border-[#E6AFA4]'}`}>
                         <p className="text-black text-md mb-3">SALT<br />SCORE:</p>

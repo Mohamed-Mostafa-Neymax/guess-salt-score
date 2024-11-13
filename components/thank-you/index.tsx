@@ -36,7 +36,7 @@ const ThankYou: React.FC = () => {
                 </div>
                 <div className="flex flex-col justify-between h-full w-full max-w-[450px]">
                     <div className="flex flex-col items-center justify-center h-full">
-                        <h2 className="text-3xl MontserratBold text-[#018167] text-center mb-10">Scalp hair loss takes an emotional toll⁵,⁷</h2>
+                        <h2 className="text-3xl MontserratBold text-[#018167] text-center mb-10">Scalp hair loss takes an emotional toll<sup className="text-xs relative -top-4">5,7</sup></h2>
                         <p className="text-md text-left pb-5 mb-5 border-b border-solid border-[#AFA5A3] font-semibold">Scalp hair loss can be devastating for some patients. In addition to assessing SALT scores, the emotional aspect of the condition and its impact on patients’ lives is critical when discussing appropriate treatment plans.</p>
                         <h2 className="text-xl MontserratBold text-[#018167] mb-10">Thank you for interacting with</h2>
                         <Image src='/images/logo.png' width={220} height={220} alt="Salt home logo" className="mb-28" />
