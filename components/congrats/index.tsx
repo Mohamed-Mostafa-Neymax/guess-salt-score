@@ -16,7 +16,7 @@ const Congrats: React.FC = () => {
     useEffect(() => {
         let allPoints = calculatePoints().allPoints;
         let questions = calculatePoints().questions;
-        dispatch(guessActions.setPoints(questions > 0 ? Math.ceil(allPoints / questions) : 0));
+        dispatch(guessActions.setPoints(questions > 0 ? Math.floor(allPoints / questions) : 0));
     }, []);
 
     return (

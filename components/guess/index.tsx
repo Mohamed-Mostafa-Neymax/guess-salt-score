@@ -78,7 +78,7 @@ const Guess: React.FC = () => {
                         </div>
                     ) : (
                         <h2 className="text-2xl MontserratBold text-[#018167] text-center h-10">
-                            <span>Select your guess for {guessMode === 'baseline' ? 'Baseline' : 'Week 24'}</span>
+                            <span>Select your guess for {guessMode === 'baseline' ? 'baseline' : 'Week 24'}</span>
                         </h2>
                     )
                 }

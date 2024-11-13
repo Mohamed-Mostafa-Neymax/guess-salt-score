@@ -17,7 +17,7 @@ const SideActions: React.FC<{ isGuessingStage: boolean; }> = ({ isGuessingStage 
     useEffect(() => {
         let allPoints = calculatePoints().allPoints;
         let questions = calculatePoints().questions;
-        dispatch(guessActions.setPoints(questions > 0 ? Math.ceil(allPoints / questions) : 0));
+        dispatch(guessActions.setPoints(questions > 0 ? Math.floor(allPoints / questions) : 0));
     }, [isGuessEstimated]);
 
     return (

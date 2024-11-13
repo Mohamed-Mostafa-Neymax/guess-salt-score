@@ -51,7 +51,7 @@ const Gauge: React.FC<{ path: string; }> = ({ path }) => {
         const formData = new FormData();
         let allPoints = calculatePoints().allPoints;
         let questions = calculatePoints().questions;
-        formData.append('score', `${Math.ceil(allPoints / questions)}`);
+        formData.append('score', `${Math.floor(allPoints / questions)}`);
         const request = await fetch(
             `https://cms-saltscore.blueholding.co.uk/api/update-leaderboard/${userID}`,
             {
@@ -113,7 +113,7 @@ const Gauge: React.FC<{ path: string; }> = ({ path }) => {
                     {
                         isGuessEstimated && path.includes('week24') ? 'SEE PATIENT SUMMARY' :
                             isGuessEstimated && path.includes('baseline') ? 'SEE WEEK 24' :
-                                'Submit'
+                                'SUBMIT'
                     }
                 </CustomButton>
             </div>

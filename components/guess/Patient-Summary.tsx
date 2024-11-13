@@ -52,7 +52,7 @@ const PatientSummary: React.FC = () => {
                     </div>
                 </div>
                 <p className='text-xs mt-1.5'>
-                    Real patient images from the LITFULO pivotal clinical study. All patients shown are ≥12 years of age. Patient images are used with permission.⁴<sup>4</sup>
+                    Real patient images from the LITFULO pivotal clinical study. All patients shown are ≥12 years of age. Patient images are used with permission.<sup>4</sup>
                 </p>
                 <p className='text-xs mt-1.5'>
                     Patient images demonstrate an example of a patient who met the clinical trial primary endpoint of SALT ≤10 at Week 24. Individual results may vary.³
@@ -61,7 +61,7 @@ const PatientSummary: React.FC = () => {
                     <p className='text-xs mt-1.5'>
                         QD=once daily; SALT=Severity of Alopecia Tool.
                     </p>
-                    <div className='text-[#67917D] text-xs MontserratBold flex justify-end items-center gap-5'>
+                    <div className='text-[#67917D] text-xs MontserratBold flex justify-end items-center gap-5 relative top-5'>
                         <p>Patient:</p>
                         <div className='flex border-2 border-solid border-[#67917D] rounded-xl bg-[#67917D]'>
                             {
@@ -79,7 +79,7 @@ const PatientSummary: React.FC = () => {
             </div>
 
             <div className="flex flex-col justify-center items-center gap-6">
-                <p className="text-md MontserratBold">At Week 24, 13.4% of patients achieved SALT ≤10 with LITFULO 50 mg QD vs 1.5% with placebo (P=0.0003).³,⁵</p>
+                <p className="text-md MontserratBold">At Week 24, 13.4% of patients achieved SALT ≤10 with LITFULO 50 mg QD vs 1.5% with placebo (<i>P</i>=0.0003).<sup>3,5</sup></p>
                 <p className="text-md">By Week 48, LITFULO 50 mg QD helped 31% of patients achieve SALT ≤10.⁶</p>
                 <Image src='/images/patient-summary.png' width={620} height={300} alt="Patient Summary Image" />
                 <div className="flex justify-center">

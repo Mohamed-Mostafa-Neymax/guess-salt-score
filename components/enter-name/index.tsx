@@ -76,7 +76,7 @@ const EnterName: React.FC = () => {
 
     return (
         <div className="fadePage">
-            <div className="pt-10 pl-28 mb-36">
+            <div className="pt-10 pl-28 mb-20">
                 <h2 className="text-3xl MontserratBold text-[#018167] mb-16">Earn a spot on the leaderboard!</h2>
                 <label htmlFor="username" className="block text-xl font-bold mb-5">ENTER YOUR NAME</label>
                 <input
@@ -84,7 +84,7 @@ const EnterName: React.FC = () => {
                     id="username"
                     onChange={inputChangeHandler}
                     className="w-3/5 h-14 p-3 text-xl block border-[2px] border-solid border-[#244A5D] focus-visible:outline-none" />
-                <p className={`mt-2 ${inputMessage.length === 0 ? 'text-black' : 'text-red-600'}`}>{inputMessage.length === 0 ? 'First Name, Last Initial' : inputMessage}</p>
+                <p className={`mt-2 ${inputMessage.length === 0 ? 'text-black' : 'text-red-600'}`}>{inputMessage.length === 0 ? '' : inputMessage}</p>
             </div>
             <div className="flex justify-center">
                 <CustomButton

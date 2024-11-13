@@ -32,7 +32,7 @@ const ThankYou: React.FC = () => {
                         width={400}
                         height={300}
                         alt="Salt home logo"
-                        className="absolute left-3 bottom-0" />
+                        className="absolute left-4 bottom-0" />
                 </div>
                 <div className="flex flex-col justify-between h-full w-full max-w-[450px]">
                     <div className="flex flex-col items-center justify-center h-full">
@@ -44,7 +44,7 @@ const ThankYou: React.FC = () => {
                             isActionBtn={false}
                             isDisabled={false}
                             onSubmitHandler={() => {router.push('/stage/leaderboard')}}>
-                            Finish
+                            FINISH
                         </CustomButton>
                     </div>
                     <button

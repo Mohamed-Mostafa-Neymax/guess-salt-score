@@ -49,11 +49,6 @@ const Leaderboard: React.FC = () => {
     }
 
     function compareLeaderboards(oldList: LeaderboardItem[], newList: LeaderboardItem[]) {
-        console.log('oldList : ', oldList);
-        console.log('newList : ', newList);
-
-        
-
         for (let c = 0; c < oldList.length; c++) {
             if (oldList[c].name !== newList[c].name) {
                 if (audioRef.current && !isMute) {
@@ -81,7 +76,7 @@ const Leaderboard: React.FC = () => {
                     <Image src='/images/top-scores.png' width={350} height={100} alt="SALT Top Scores" />
                 </div>
                 <div className='h-full grid grid-cols-2 gap-8'>
-                    <ul className="w-full relative flex flex-col justify-between">
+                    <ul className="w-full relative flex flex-col gap-4">
                         <AnimatePresence>
                             {
                                 firstLeaderboard.map((user, index) => (
@@ -112,7 +107,7 @@ const Leaderboard: React.FC = () => {
                             }
                         </AnimatePresence>
                     </ul>
-                    <ul className="w-full relative flex flex-col justify-between">
+                    <ul className="w-full relative flex flex-col gap-4">
                         <AnimatePresence>
                             {
                                 secondLeaderboard.map((user, index) => (
