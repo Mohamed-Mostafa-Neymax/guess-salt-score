@@ -11,7 +11,7 @@ const GuessNotification: React.FC<{ saltScore: number; isActualScore: boolean; }
         <div className="w-full">
             {
                 isActualScore && (
-                    <div className="w-full px-[70px]">
+                    <div className="w-full px-[78px]">
                         <Image
                             src='/images/arrow-good.png'
                             width={30}
@@ -52,7 +52,7 @@ const GuessNotification: React.FC<{ saltScore: number; isActualScore: boolean; }
             </div>
             {
                 !isActualScore && (
-                    <div className="w-full px-[70px]">
+                    <div className="w-full px-[78px]">
                         <Image
                             src='/images/arrow-guess.png'
                             width={30}

@@ -38,7 +38,7 @@ const Overview: React.FC<{ isPopup: boolean; onClosePopup?: () => void; }> = ({ 
                             <h3 className="MontserratBold">Back and Right</h3>
                         </div>
                     </div>
-                    <p className="font-semibold text-xs">Adapted from Olsen EA, et al. <i>J AM Acad Dermatol</i>. 2004;51(3):440-447.</p>
+                    <p className="font-semibold text-xs">Adapted from Olsen EA, <i>et al</i>. <i>J AM Acad Dermatol</i>. 2004;51(3):440-447.</p>
                 </div>
             </div>
             <div className="flex justify-center">

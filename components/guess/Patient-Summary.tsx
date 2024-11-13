@@ -59,7 +59,7 @@ const PatientSummary: React.FC = () => {
                 </p>
                 <div className="flex justify-between">
                     <p className='text-xs mt-1.5'>
-                        QD=once daily; SALT=Severity of Alopecia Tool.
+                        QD=Once Daily; SALT=Severity of Alopecia Tool.
                     </p>
                     <div className='text-[#67917D] text-xs MontserratBold flex justify-end items-center gap-5 relative top-5'>
                         <p>Patient:</p>

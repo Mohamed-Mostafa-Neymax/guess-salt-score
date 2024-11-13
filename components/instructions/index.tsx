@@ -18,7 +18,7 @@ const Instructions: React.FC = () => {
                     <br />
                     See additional clinical trial information in the full Summary of Product Characteristics.<br />
                     <br />
-                    QD=once daily; SALT=Severity of Alopecia Tool.
+                    QD=Once Daily; SALT=Severity of Alopecia Tool.
                 </p>
             </div>
             <div>
