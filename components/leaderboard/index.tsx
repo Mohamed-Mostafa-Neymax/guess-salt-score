@@ -76,7 +76,7 @@ const Leaderboard: React.FC = () => {
                     <Image src='/images/top-scores.png' width={350} height={100} alt="SALT Top Scores" />
                 </div>
                 <div className='h-full grid grid-cols-2 gap-8'>
-                    <ul className="w-full relative flex flex-col gap-4">
+                    <ul className="w-full relative flex flex-col gap-2">
                         <AnimatePresence>
                             {
                                 firstLeaderboard.map((user, index) => (
@@ -107,7 +107,7 @@ const Leaderboard: React.FC = () => {
                             }
                         </AnimatePresence>
                     </ul>
-                    <ul className="w-full relative flex flex-col gap-4">
+                    <ul className="w-full relative flex flex-col gap-2">
                         <AnimatePresence>
                             {
                                 secondLeaderboard.map((user, index) => (

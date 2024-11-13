@@ -74,6 +74,10 @@ const EnterName: React.FC = () => {
         const responseAddScore = await requestAddScore.json();
     }
 
+    function focusHandler() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
     return (
         <div className="fadePage">
             <div className="pt-10 pl-28 mb-20">
@@ -83,6 +87,7 @@ const EnterName: React.FC = () => {
                     type="text"
                     id="username"
                     onChange={inputChangeHandler}
+                    onFocus={focusHandler}
                     className="w-3/5 h-14 p-3 text-xl block border-[2px] border-solid border-[#244A5D] focus-visible:outline-none" />
                 <p className={`mt-2 ${inputMessage.length === 0 ? 'text-black' : 'text-red-600'}`}>{inputMessage.length === 0 ? '' : inputMessage}</p>
             </div>
