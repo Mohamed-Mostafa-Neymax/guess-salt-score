@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { IoVolumeMuteSharp } from "react-icons/io5";
 import { IoVolumeHigh } from "react-icons/io5";
+import Header from '../home/Header';
 
 
 interface LeaderboardItem {
@@ -62,7 +63,6 @@ const Leaderboard: React.FC = () => {
 
     return (
         <div className="h-full flex flex-col justify-between items-center fadePage">
-
             {
                 firstLeaderboard.length > 0 && (
                     <audio autoPlay ref={audioRef}>
@@ -75,71 +75,81 @@ const Leaderboard: React.FC = () => {
                 <div className="mb-4 flex justify-center">
                     <Image src='/images/top-scores.png' width={350} height={100} alt="SALT Top Scores" />
                 </div>
-                <div className='h-full grid grid-cols-2 gap-8'>
-                    <ul className="w-full relative flex flex-col gap-2">
-                        <AnimatePresence>
-                            {
-                                firstLeaderboard.map((user, index) => (
-                                    <motion.div
-                                        key={user.id}
-                                        className={`flex justify-between ${index < 3 ? 'bg-[#B7D57D]' : 'bg-[#CCE2A1]'}`}
-                                        layout
-                                        initial={{ opacity: 0, y: -20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: 20 }}
-                                        transition={{ type: 'spring', stiffness: 300, damping: 20 }}>
-                                        <div className="pl-6 flex items-center w-full text-2xl MontserratBold text-[#013E53]">
-                                            {
-                                                index < 3 ? (
-                                                    <Image src={`/images/user${index + 1}.png`} className="absolute -left-8" width={50} height={50} alt="User position" />
-                                                ) : (
-                                                    <span>{index + 1}.&nbsp;</span>
-                                                )
-                                            }
-                                            <p>{user.name}</p>
-                                        </div>
-                                        <div className="bg-[#013E53] text-white min-w-[120px] w-[80px] flex flex-col items-center justify-center py-2 2xl:py-3">
-                                            <h1 className="text-2xl MontserratBold">{user.score}</h1>
-                                            <h1 className="text-md font-bold">POINTS</h1>
-                                        </div>
-                                    </motion.div>
-                                ))
-                            }
-                        </AnimatePresence>
-                    </ul>
-                    <ul className="w-full relative flex flex-col gap-2">
-                        <AnimatePresence>
-                            {
-                                secondLeaderboard.map((user, index) => (
-                                    <motion.div
-                                        key={user.id}
-                                        className={`flex justify-between ${index < 3 ? 'bg-[#B7D57D]' : 'bg-[#CCE2A1]'}`}
-                                        layout
-                                        initial={{ opacity: 0, y: -20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: 20 }}
-                                        transition={{ type: 'spring', stiffness: 300, damping: 20 }}>
-                                        <div className="pl-6 flex items-center w-full text-2xl MontserratBold text-[#013E53]">
-                                            <span>{index + 8}.&nbsp;</span>
-                                            <p>{user.name}</p>
-                                        </div>
-                                        <div className="bg-[#013E53] text-white min-w-[120px] w-[80px] flex flex-col items-center justify-center py-2 2xl:py-3">
-                                            <h1 className="text-2xl MontserratBold">{user.score}</h1>
-                                            <h1 className="text-md font-bold">POINTS</h1>
-                                        </div>
-                                    </motion.div>
-                                ))
-                            }
-                        </AnimatePresence>
-                    </ul>
-                        <button type='button' className='absolute bottom-8 right-8 bg-[#00000059]' onClick={() => setIsMute(prevState => !prevState)}>
-                            {
-                                isMute ? <IoVolumeMuteSharp size={26} color='#fff' /> : <IoVolumeHigh size={26} color='#fff' />
-                            }
-                        </button>
-                </div>
+                {
+                    firstLeaderboard.length > 0 ? (
+                        <div className='h-full grid grid-cols-2 gap-8'>
+                            <ul className="w-full relative flex flex-col gap-2">
+                                <AnimatePresence>
+                                    {
+                                        firstLeaderboard.map((user, index) => (
+                                            <motion.div
+                                                key={user.id}
+                                                className={`flex justify-between flex-1 ${index < 3 ? 'bg-[#B7D57D]' : 'bg-[#CCE2A1]'}`}
+                                                layout
+                                                initial={{ opacity: 0, y: -20 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                exit={{ opacity: 0, y: 20 }}
+                                                transition={{ type: 'spring', stiffness: 300, damping: 20 }}>
+                                                <div className="pl-6 flex items-center w-full text-2xl MontserratBold text-[#013E53] overflow-hidden">
+                                                    {
+                                                        index < 3 ? (
+                                                            <Image src={`/images/user${index + 1}.png`} className="absolute -left-8" width={50} height={50} alt="User position" />
+                                                        ) : (
+                                                            <span>{index + 1}.&nbsp;</span>
+                                                        )
+                                                    }
+                                                    <p>{user.name}</p>
+                                                </div>
+                                                <div className="bg-[#013E53] text-white min-w-[120px] w-[80px] flex flex-col items-center justify-center">
+                                                    <h1 className="text-2xl MontserratBold">{user.score}</h1>
+                                                    <h1 className="text-md font-bold">POINTS</h1>
+                                                </div>
+                                            </motion.div>
+                                        ))
+                                    }
+                                </AnimatePresence>
+                            </ul>
+                            <ul className="w-full relative flex flex-col gap-2">
+                                <AnimatePresence>
+                                    {
+                                        secondLeaderboard.map((user, index) => (
+                                            <motion.div
+                                                key={user.id}
+                                                className={`flex justify-between flex-1 w-full ${index < 3 ? 'bg-[#B7D57D]' : 'bg-[#CCE2A1]'}`}
+                                                layout
+                                                initial={{ opacity: 0, y: -20 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                exit={{ opacity: 0, y: 20 }}
+                                                transition={{ type: 'spring', stiffness: 300, damping: 20 }}>
+                                                <div className="pl-6 flex items-center w-full text-2xl MontserratBold text-[#013E53] overflow-hidden">
+                                                    <span>{index + 8}.&nbsp;</span>
+                                                    <p>{user.name}</p>
+                                                </div>
+                                                <div className="bg-[#013E53] text-white min-w-[120px] w-[80px] flex flex-col items-center justify-center">
+                                                    <h1 className="text-2xl MontserratBold">{user.score}</h1>
+                                                    <h1 className="text-md font-bold">POINTS</h1>
+                                                </div>
+                                            </motion.div>
+                                        ))
+                                    }
+                                </AnimatePresence>
+                            </ul>
+                            <button type='button' className='absolute bottom-8 right-8 bg-[#00000059]' onClick={() => setIsMute(prevState => !prevState)}>
+                                {
+                                    isMute ? <IoVolumeMuteSharp size={26} color='#fff' /> : <IoVolumeHigh size={26} color='#fff' />
+                                }
+                            </button>
+                        </div>
+                    ) : (
+                        <div className='text-center flex flex-col items-center h-full justify-center gap-8'>
+                            <Image src='/images/empty-leaderboard.png' width={200} height={400} alt='Empy Leaderboard' />
+                            <p className='font-bold text-3xl text-[#646464]'>Let's get started<br />Who will take the top spot?</p>
+                            {/* <Header isLeaderboard={true} /> */}
+                        </div>
+                    )
+                }
+
             </div>
-            {/* <Header isLeaderboard={true} /> */}
         </div>
     )
 }
