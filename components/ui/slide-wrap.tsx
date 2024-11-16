@@ -19,6 +19,7 @@ const SlideWrapper: React.FC<{ children: React.ReactNode; isShownLogo: boolean; 
                     </div>
                 )
             }
+            <span className="absolute bottom-3 left-3 MontserratBold text-[#048566]">For Internal use only.</span>
         </div>
     );
 }
