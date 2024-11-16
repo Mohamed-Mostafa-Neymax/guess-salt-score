@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const SlideWrapper: React.FC<{ children: React.ReactNode; isShownLogo: boolean; isLitfuloLogo: boolean; }> = ({ children, isShownLogo, isLitfuloLogo }) => {
+const SlideWrapper: React.FC<{ children: React.ReactNode; isShownLogo: boolean; isLitfuloLogo: boolean; thankRoute?: boolean }> = ({ children, isShownLogo, isLitfuloLogo, thankRoute }) => {
     return (
         <div className="bg-[#F9F4F0] w-10/12 h-full p-10 rounded-3xl relative">
             <Image src='/images/logo.png' width={300} height={100} alt="Salt home logo" className="absolute -left-3 -top-8" />
@@ -19,7 +19,9 @@ const SlideWrapper: React.FC<{ children: React.ReactNode; isShownLogo: boolean; 
                     </div>
                 )
             }
-            <span className="absolute bottom-3 left-3 MontserratBold text-[#048566]">For Internal use only.</span>
+            {
+                !thankRoute && <span className="absolute bottom-3 left-3 MontserratBold text-[#048566]">For Internal use only.</span>
+            }
         </div>
     );
 }

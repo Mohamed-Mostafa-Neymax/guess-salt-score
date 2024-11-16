@@ -14,6 +14,7 @@ const Footer: React.FC = () => {
                 <p>
                     <span className="text-white">References:</span> 1. LITFULO (ritlecitinib) Summary of Product Characteristics. 2023. 2. King B, Zhang X, Harcha WG, <i>et al</i>. Efficacy and safety of ritlecitinib in adults and adolescents with alopecia areata: a randomised, double-blind, multicentre, phase 2b–3 trial. <i>Lancet</i>. 2023;401(10387):1518-1529. doi:10.1016/S0140-6736(23)00222-2 3. Olsen EA, Hordinsky MK, Price VH, <i>et al</i>. Alopecia areata investigational assessment guidelines—part II. <i>J Am Acad Dermatol</i>. 2004;51(3):440-447. doi:10.1016/j.jaad.2003.09.032
                 </p>
+                <p className="MontserratBold mt-3">For Internal use only.</p>
             </div>
             <CustomButton
                 isActionBtn={true}
