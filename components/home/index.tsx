@@ -6,7 +6,7 @@ import Footer from "./Footer";
 const Home: React.FC = () => {
     return (
         <div className="h-full p-5">
-            <Image src='/images/bg-home.png' fill alt="Salt home background" style={{ objectFit: 'cover' }} />
+            <Image src='/images/bg-home.png' fill alt="Salt home background" style={{ objectFit: 'cover' }} priority={true} />
             <div className="flex flex-col items-center justify-between relative z-10 h-full">
                 <Header isLeaderboard={false} />
                 <div className="flex items-center justify-center relative w-full h-full">
